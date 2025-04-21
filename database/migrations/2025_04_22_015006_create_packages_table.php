@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('packages', function (Blueprint $table) {
+            // id
+            $table->ulid('id')->primary();
+
+            // relations
+
+            // columns
+            $table->string('name')->nullable();
+            $table->integer('session_quote')->nullable()->default(0);
+            $table->integer('active_period_days')->nullable()->default(0);
+            $table->decimal('price', 24, 4)->nullable()->default(0);
+
+            // default
+            $table->timestamps();
+            $table->softDeletes();
+            $table->ulid('created_by')->nullable();
+            $table->ulid('updated_by')->nullable();
+            $table->ulid('deleted_by')->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('packages');
+    }
+};
