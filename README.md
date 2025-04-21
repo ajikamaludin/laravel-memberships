@@ -1,6 +1,6 @@
-# Laravel DJ Management
+# Laravel Memberhips
 
-[placeholder of description]
+this app will manage class, package, member, memberships and sessions
 
 ## Support me
 

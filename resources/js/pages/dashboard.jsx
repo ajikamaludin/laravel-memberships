@@ -2,7 +2,6 @@ import React from 'react'
 import { Head } from '@inertiajs/react'
 
 import AuthenticatedLayout from '@/layouts/default/authenticated-layout'
-import DummyDashbord from '@/components/dummy/dashboard'
 
 export default function Dashboard(props) {
     return (
@@ -43,7 +42,6 @@ export default function Dashboard(props) {
                         </div>
                     </div>
                 </div>
-                <DummyDashbord />
             </div>
         </AuthenticatedLayout>
     )
