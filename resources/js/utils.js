@@ -89,3 +89,8 @@ export const showToast = (message, type) => {
     }
     toast(message)
 }
+
+export const trimText = (text, maxLength = 30) => {
+    if (text.length <= maxLength) return text
+    return text.slice(0, maxLength) + '...'
+}

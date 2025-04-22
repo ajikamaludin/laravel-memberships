@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MemberCategoryController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BundleController;
@@ -50,6 +52,14 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // #Admin
+Route::delete('member-categories/{memberCategory}', [MemberCategoryController::class,'destroy'])->name('member-categories.destroy');
+Route::put('member-categories/{memberCategory}', [MemberCategoryController::class,'update'])->name('member-categories.update');
+Route::post('member-categories', [MemberCategoryController::class,'store'])->name('member-categories.store');
+Route::get('member-categories', [MemberCategoryController::class,'index'])->name('member-categories.index');
+Route::delete('members/{member}', [MemberController::class,'destroy'])->name('members.destroy');
+Route::put('members/{member}', [MemberController::class,'update'])->name('members.update');
+Route::post('members', [MemberController::class,'store'])->name('members.store');
+Route::get('members', [MemberController::class,'index'])->name('members.index');
 Route::delete('employees/{employee}', [EmployeeController::class,'destroy'])->name('employees.destroy');
 Route::put('employees/{employee}', [EmployeeController::class,'update'])->name('employees.update');
 Route::post('employees', [EmployeeController::class,'store'])->name('employees.store');

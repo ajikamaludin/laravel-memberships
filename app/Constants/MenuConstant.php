@@ -50,6 +50,20 @@ class MenuConstant
                         'active' => 'employees.*',
                         'permission' => 'view-employee',
                     ],
+                    [
+                        'name' => 'Kategori Member',
+                        'show' => true,
+                        'route' => route('member-categories.index'),
+                        'active' => 'member-categories.*',
+                        'permission' => 'view-member-category',
+                    ],
+                    [
+                        'name' => 'Member',
+                        'show' => true,
+                        'route' => route('members.index'),
+                        'active' => 'members.*',
+                        'permission' => 'view-member',
+                    ],
                 ]
             ],
             [
@@ -82,6 +96,8 @@ class MenuConstant
             ],
 
             // # Add Generated Menu Here!
+
+
 
 
 

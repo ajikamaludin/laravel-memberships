@@ -4,7 +4,8 @@
 -   [x] crud paket
 -   [x] crud akun
 -   [x] crud karyawan
--   [ ] crud member
+-   [x] crud kategori member
+-   [x] crud member
 -   [ ] cetak kartu member
 -   [ ] crud transactions
 -   [ ] cetak invoices

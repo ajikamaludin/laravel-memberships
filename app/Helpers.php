@@ -42,7 +42,7 @@ if (!function_exists('formatDate')) {
 if (!function_exists('formatNumZero')) {
     function formatNumZero($n)
     {
-        $max = 3; // 0001
+        $max = 6; // 0000001
 
         $number = '';
         foreach (range(0, $max - strlen($n)) as $_) {
