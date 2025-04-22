@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->integer('session_quote')->nullable()->default(0);
             $table->integer('active_period_days')->nullable()->default(0);
-            $table->decimal('price', 24, 4)->nullable()->default(0);
+            $table->decimal('price', 24, 2)->nullable()->default(0);
 
             // default
             $table->timestamps();

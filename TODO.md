@@ -1,0 +1,24 @@
+### TODO
+
+-   [ ] crud kelas
+-   [ ] crud paket
+-   [ ] crud akun
+-   [ ] crud karyawan
+-   [ ] crud member
+-   [ ] cetak kartu member
+-   [ ] crud transactions
+-   [ ] cetak invoices
+-   [ ] list memberships
+-   [ ] crud sessions
+-   [ ] crud open sessions
+-   [ ] crud payments
+-   [ ] crud expense
+-   [ ] crud income
+-   [ ] laporan member datang
+-   [ ] laporan akumulasi member data per hari
+-   [ ] laporan akumulasi total kelas per coach
+-   [ ] laporan akumulasi total fee per coach
+-   [ ] laporan absensi member data per kelas dan sesi
+-   [ ] laporan fee coach
+-   [ ] laporan laba rugi
+-   [ ] laporan kas

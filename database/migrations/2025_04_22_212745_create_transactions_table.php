@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employee_payments', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             // id
             $table->ulid('id')->primary();
 
             // relations
-            $table->ulid('employee_id')->nullable();
+            $table->ulid('member_id')->nullable();
+            $table->ulid('account_id')->nullable();
 
             // columns
-            $table->timestamp('payment_date')->nullable();
-            $table->decimal('basic_salary_per_session', 24, 2)->nullable();
+            $table->timestamp('transaction_date')->nullable();
+            $table->decimal('amount', 24, 2)->nullable();
+            $table->decimal('discount', 24, 2)->nullable();
 
             // default
             $table->timestamps();
@@ -36,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employee_payments');
+        Schema::dropIfExists('transactions');
     }
 };

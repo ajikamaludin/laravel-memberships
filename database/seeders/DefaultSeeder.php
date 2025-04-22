@@ -4,10 +4,13 @@ namespace Database\Seeders;
 
 use App\Constants\PermissionConstant;
 use App\Constants\SettingConstant;
+use App\Models\Account;
 use App\Models\Default\Permission;
 use App\Models\Default\Role;
 use App\Models\Default\Setting;
 use App\Models\Default\User;
+use App\Models\MemberCategory;
+use App\Models\TrainingTime;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -45,5 +48,43 @@ class DefaultSeeder extends Seeder
             'password' => bcrypt('password'),
             'role_id' => $role->id,
         ]);
+
+        foreach (['Baru', 'Lama'] as $cat) {
+            MemberCategory::create(['name' => $cat]);
+        }
+
+        foreach (['QRIS', 'Cash', 'Transfer'] as $method) {
+            Account::create([
+                'name' =>  $method
+            ]);
+        }
+
+        foreach (['15:00', '17:00'] as $t) {
+            TrainingTime::create(['name' => $t]);
+        }
+
+        $this->subjects();
+    }
+
+    private function subjects()
+    {
+        $subjects = [
+            [
+                'name' => 'MUAYTHAI - REGULER',
+                'employee_fee_per_person' => '15000'
+            ],
+            [
+                'name' => 'BOXING - REGULER',
+                'employee_fee_per_person' => '15000'
+            ],
+            [
+                'name' => 'MUAYTHAI - PRIVATE',
+                'employee_fee_per_person' => '75000'
+            ],
+            [
+                'name' => 'GYM',
+                'employee_fee_per_person' => ''
+            ]
+        ];
     }
 }

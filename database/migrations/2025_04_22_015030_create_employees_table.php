@@ -20,7 +20,7 @@ return new class extends Migration
             // columns
             $table->string('name')->nullable();
             $table->string('position')->nullable();
-            $table->decimal('basic_salary_per_session', 24, 4)->nullable();
+            $table->decimal('basic_salary_per_session', 24, 2)->nullable();
 
             // default
             $table->timestamps();

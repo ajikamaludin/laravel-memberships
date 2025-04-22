@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Default\Model;
 
-class TransactionMember extends Model
+class Transaction extends Model
 {
     protected $fillable = [
         'member_id',

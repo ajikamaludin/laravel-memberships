@@ -11,24 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaction_memberships', function (Blueprint $table) {
+        Schema::create('transaction_items', function (Blueprint $table) {
             // id
             $table->ulid('id')->primary();
 
             // relations
-            $table->ulid('member_id')->nullable();
-            $table->ulid('account_id')->nullable();
+            $table->ulid('transaction_id')->nullable();
             $table->ulid('package_id')->nullable();
 
             // columns
-            $table->timestamp('transaction_date')->nullable();
-            $table->decimal('amount', 24, 4)->nullable();
-            $table->decimal('discount', 24, 4)->nullable();
+            $table->string('name')->nullable();
+            $table->decimal('price', 24, 2)->nullable();
 
-            $table->timestamp('expired_at')->nullable();
-            $table->integer('session_quote')->nullable();
-            $table->integer('session_quote_used')->nullable();
-            $table->integer('active_period_days')->nullable();
 
             // default
             $table->timestamps();
@@ -44,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transaction_memberships');
+        Schema::dropIfExists('transaction_items');
     }
 };
