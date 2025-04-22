@@ -9,7 +9,7 @@
 -   [x] cetak kartu member
 -   [x] crud transactions
 -   [x] cetak invoices
--   [ ] list memberships
+-   [x] list memberships
 -   [ ] crud sessions
 -   [ ] crud open sessions
 -   [ ] crud payments gaji

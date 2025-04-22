@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\MemberCategoryController;
 use App\Http\Controllers\MemberController;
@@ -53,6 +54,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // #Admin
+    Route::get('memberships', [MembershipController::class, 'index'])->name('memberships.index');
+
     Route::get('transactions/{transaction}/print', [TransactionController::class, 'print'])->name('transactions.print');
     Route::resource('transactions', TransactionController::class);
 

@@ -27,6 +27,14 @@ class MenuConstant
                 'permission' => 'view-transaction',
             ],
             [
+                'name' => 'Membership',
+                'show' => true,
+                'icon' => 'HiUser',
+                'route' => route('memberships.index'),
+                'active' => 'memberships.*',
+                'permission' => 'view-membership',
+            ],
+            [
                 'name' => 'Master',
                 'show' => true,
                 'icon' => 'HiClipboardDocumentList',
@@ -105,7 +113,6 @@ class MenuConstant
             ],
 
             // # Add Generated Menu Here!
-
         ];
 
         return $menu;
