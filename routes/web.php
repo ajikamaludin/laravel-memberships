@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BundleController;
 use App\Http\Controllers\SubjectController;
@@ -49,6 +50,10 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // #Admin
+Route::delete('employees/{employee}', [EmployeeController::class,'destroy'])->name('employees.destroy');
+Route::put('employees/{employee}', [EmployeeController::class,'update'])->name('employees.update');
+Route::post('employees', [EmployeeController::class,'store'])->name('employees.store');
+Route::get('employees', [EmployeeController::class,'index'])->name('employees.index');
 Route::delete('accounts/{account}', [AccountController::class,'destroy'])->name('accounts.destroy');
 Route::put('accounts/{account}', [AccountController::class,'update'])->name('accounts.update');
 Route::post('accounts', [AccountController::class,'store'])->name('accounts.store');

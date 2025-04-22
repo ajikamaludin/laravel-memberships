@@ -43,6 +43,13 @@ class MenuConstant
                         'active' => 'accounts.*',
                         'permission' => 'view-account',
                     ],
+                    [
+                        'name' => 'Karyawan',
+                        'show' => true,
+                        'route' => route('employees.index'),
+                        'active' => 'employees.*',
+                        'permission' => 'view-employee',
+                    ],
                 ]
             ],
             [
@@ -75,6 +82,7 @@ class MenuConstant
             ],
 
             // # Add Generated Menu Here!
+
 
 
 

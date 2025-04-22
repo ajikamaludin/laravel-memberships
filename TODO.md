@@ -3,7 +3,7 @@
 -   [x] crud kelas
 -   [x] crud paket
 -   [x] crud akun
--   [ ] crud karyawan
+-   [x] crud karyawan
 -   [ ] crud member
 -   [ ] cetak kartu member
 -   [ ] crud transactions

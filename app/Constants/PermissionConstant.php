@@ -22,6 +22,12 @@ class PermissionConstant
         ['label' => 'View Setting', 'name' => 'view-setting'],
 
         // #Add New Permission Below!
+
+        ['label' => 'Delete Karyawan', 'name' => 'delete-employee'],
+        ['label' => 'Update Karyawan', 'name' => 'update-employee'],
+        ['label' => 'Create Karyawan', 'name' => 'create-employee'],
+        ['label' => 'View Karyawan', 'name' => 'view-employee'],
+
         ['label' => 'Delete Akun', 'name' => 'delete-account'],
         ['label' => 'Update Akun', 'name' => 'update-account'],
         ['label' => 'Create Akun', 'name' => 'create-account'],
