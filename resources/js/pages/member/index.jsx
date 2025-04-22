@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { router, Head } from '@inertiajs/react'
 import { usePrevious } from 'react-use'
-import { HiPencil, HiTrash } from 'react-icons/hi2'
+import {
+    HiCreditCard,
+    HiEye,
+    HiPencil,
+    HiPrinter,
+    HiTrash,
+} from 'react-icons/hi2'
 import { useModalState } from '@/hooks'
 
 import HasPermission from '@/components/common/has-permission'
@@ -84,7 +90,7 @@ export default function Index(props) {
                         </div>
                     </div>
                     <div className="overflow-x-auto">
-                        <table className="table mb-4">
+                        <table className="table my-4">
                             <thead>
                                 <tr>
                                     <th>Member ID</th>
@@ -93,7 +99,7 @@ export default function Index(props) {
                                     <th>No.Telp</th>
                                     <th>Gender</th>
                                     <th>Keterangan</th>
-                                    <th />
+                                    <th className="w-[100px]" />
                                 </tr>
                             </thead>
                             <tbody>
@@ -106,22 +112,11 @@ export default function Index(props) {
                                         <td>{member.gender}</td>
                                         <td>{member.description}</td>
                                         <td className="text-end">
-                                            <Dropdown>
-                                                <HasPermission p="update-member">
-                                                    <Dropdown.Item
-                                                        onClick={() =>
-                                                            toggleFormModal(
-                                                                member
-                                                            )
-                                                        }
-                                                    >
-                                                        <div className="flex space-x-1 items-center">
-                                                            <HiPencil />
-                                                            <div>Edit</div>
-                                                        </div>
-                                                    </Dropdown.Item>
-                                                </HasPermission>
-                                                <HasPermission p="delete-member">
+                                            <div className="flex justify-end gap-2">
+                                                <Button>
+                                                    <HiEye />
+                                                </Button>
+                                                <Dropdown>
                                                     <Dropdown.Item
                                                         onClick={() =>
                                                             handleDeleteClick(
@@ -130,12 +125,44 @@ export default function Index(props) {
                                                         }
                                                     >
                                                         <div className="flex space-x-1 items-center">
-                                                            <HiTrash />
-                                                            <div>Delete</div>
+                                                            <HiPrinter />
+                                                            <div>
+                                                                Cetak Kartu
+                                                            </div>
                                                         </div>
                                                     </Dropdown.Item>
-                                                </HasPermission>
-                                            </Dropdown>
+                                                    <HasPermission p="update-member">
+                                                        <Dropdown.Item
+                                                            onClick={() =>
+                                                                toggleFormModal(
+                                                                    member
+                                                                )
+                                                            }
+                                                        >
+                                                            <div className="flex space-x-1 items-center">
+                                                                <HiPencil />
+                                                                <div>Edit</div>
+                                                            </div>
+                                                        </Dropdown.Item>
+                                                    </HasPermission>
+                                                    <HasPermission p="delete-member">
+                                                        <Dropdown.Item
+                                                            onClick={() =>
+                                                                handleDeleteClick(
+                                                                    member
+                                                                )
+                                                            }
+                                                        >
+                                                            <div className="flex space-x-1 items-center">
+                                                                <HiTrash />
+                                                                <div>
+                                                                    Delete
+                                                                </div>
+                                                            </div>
+                                                        </Dropdown.Item>
+                                                    </HasPermission>
+                                                </Dropdown>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}

@@ -26,7 +26,10 @@ const Dropdown = ({ children, label }) => {
             ref={ref}
             onClick={() => setOpen(true)}
         >
-            <summary role="button" className="btn btn-neutral px-4">
+            <summary
+                role="button"
+                className="btn btn-soft px-4"
+            >
                 {isEmpty(label) ? (
                     <HiEllipsisVertical className="h-5 w-5" />
                 ) : (

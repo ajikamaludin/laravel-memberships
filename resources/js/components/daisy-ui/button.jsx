@@ -16,6 +16,9 @@ export default function Button(props) {
         error: 'btn-error btn-soft',
         success: 'btn-success btn-soft',
         warning: 'btn-warning btn-soft',
+
+        //
+        only: '',
     }
 
     return (
