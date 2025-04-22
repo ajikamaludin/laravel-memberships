@@ -23,7 +23,7 @@ class OpenSessionController extends Controller
             // multi columns search 
             $query->where(function ($q) use ($request) {
                 $q->whereHas('member', function ($q) use ($request) {
-                    $q->where(['code', 'name'], 'like', '%' . $request->q . '%');
+                    $q->whereAny(['code', 'name'], 'like', '%' . $request->q . '%');
                 });
             });
         }
