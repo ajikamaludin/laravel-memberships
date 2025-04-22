@@ -10,5 +10,6 @@ class Subject extends Model
         'name',
         'description',
         'employee_fee_per_person',
+        'flag'
     ];
 }

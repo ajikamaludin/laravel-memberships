@@ -10,8 +10,8 @@
 -   [x] crud transactions
 -   [x] cetak invoices
 -   [x] list memberships
+-   [x] crud open sessions
 -   [ ] crud sessions
--   [ ] crud open sessions
 -   [ ] crud payments gaji
 -   [ ] crud expense / income
 -   [ ] laporan member datang

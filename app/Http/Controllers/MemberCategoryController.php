@@ -37,7 +37,7 @@ class MemberCategoryController extends Controller
             'name' => $request->name
         ]);
 
-        session()->flash('message', ['type' => 'success', 'message' => 'Item has beed created']);
+        session()->flash('message', ['type' => 'success', 'message' => 'Item has been created']);
     }
 
     public function update(Request $request, MemberCategory $memberCategory): RedirectResponse
@@ -53,7 +53,7 @@ class MemberCategoryController extends Controller
         $memberCategory->save();
 
         return redirect()->route('member-categories.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed updated']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been updated']);
     }
 
     public function destroy(MemberCategory $memberCategory): RedirectResponse
@@ -61,6 +61,6 @@ class MemberCategoryController extends Controller
         $memberCategory->delete();
 
         return redirect()->route('member-categories.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed deleted']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been deleted']);
     }
 }

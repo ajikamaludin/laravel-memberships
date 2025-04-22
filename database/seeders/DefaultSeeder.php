@@ -97,7 +97,8 @@ class DefaultSeeder extends Seeder
             ],
             [
                 'name' => 'GYM',
-                'employee_fee_per_person' => '0'
+                'employee_fee_per_person' => '0',
+                'flag' => 1,
             ]
         ];
 

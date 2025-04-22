@@ -2,21 +2,13 @@ import React, { useEffect } from 'react'
 import { useForm } from '@inertiajs/react'
 import { isEmpty } from 'lodash'
 
-import {
-    Modal,
-    Button,
-    TextInput,
-    FormInputNumeric,
-    TextareaInput,
-} from '@/components/index'
+import { Modal, Button, TextInput } from '@/components/index'
 
 export default function FormModal(props) {
     const { modalState } = props
     const formState = {
-        name: '',
-        description: '',
-        employee_fee_per_person: '',
-    }
+            name: '',
+        }
 
     const { data, setData, post, put, processing, errors, clearErrors } =
         useForm(formState)
@@ -44,32 +36,28 @@ export default function FormModal(props) {
     }
 
     const handleSubmit = () => {
-        const subject = modalState.data
-        if (subject !== null) {
-            put(route('subjects.update', subject), {
+        const openSession = modalState.data
+        if (openSession !== null) {
+            put(route('open-sessions.update', openSession), {
                 onSuccess: () => handleClose(),
             })
             return
         }
-        post(route('subjects.store'), {
+        post(route('open-sessions.store'), {
             onSuccess: () => handleClose(),
         })
     }
 
     useEffect(() => {
-        const subject = modalState.data
-        if (isEmpty(subject) === false) {
-            setData(subject)
+        const openSession = modalState.data
+        if (isEmpty(openSession) === false) {
+            setData(openSession)
             return
         }
     }, [modalState])
 
     return (
-        <Modal
-            isOpen={modalState.isOpen}
-            onClose={handleClose}
-            title={'Kelas'}
-        >
+        <Modal isOpen={modalState.isOpen} onClose={handleClose} title={'OpenSession'}>
             <div className="form-control space-y-2.5">
                 <TextInput
                     name="name"
@@ -77,20 +65,6 @@ export default function FormModal(props) {
                     onChange={handleOnChange}
                     label="Name"
                     error={errors.name}
-                />
-                <FormInputNumeric
-                    name="employee_fee_per_person"
-                    value={data.employee_fee_per_person}
-                    onChange={handleOnChange}
-                    label="Fee"
-                    error={errors.employee_fee_per_person}
-                />
-                <TextareaInput
-                    name="description"
-                    value={data.description}
-                    onChange={handleOnChange}
-                    label="Keterangan"
-                    error={errors.description}
                 />
 
                 <div className="flex items-center space-x-2 mt-4">
@@ -101,10 +75,7 @@ export default function FormModal(props) {
                     >
                         Save
                     </Button>
-                    <Button
-                        onClick={handleClose}
-                        type="secondary"
-                    >
+                    <Button onClick={handleClose} type="secondary">
                         Cancel
                     </Button>
                 </div>

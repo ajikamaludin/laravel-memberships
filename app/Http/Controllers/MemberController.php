@@ -52,7 +52,7 @@ class MemberController extends Controller
         ]);
 
         session()->flash('data', ['member' => $member]);
-        session()->flash('message', ['type' => 'success', 'message' => 'Item has beed created']);
+        session()->flash('message', ['type' => 'success', 'message' => 'Item has been created']);
     }
 
     public function show(Member $member): Response
@@ -87,7 +87,7 @@ class MemberController extends Controller
         $member->save();
 
         return redirect()->route('members.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed updated']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been updated']);
     }
 
     public function destroy(Member $member): RedirectResponse
@@ -95,7 +95,7 @@ class MemberController extends Controller
         $member->delete();
 
         return redirect()->route('members.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed deleted']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been deleted']);
     }
 
     public function print(Member $member)

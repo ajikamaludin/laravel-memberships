@@ -42,7 +42,7 @@ class EmployeeController extends Controller
         ]);
 
         return redirect()->route('employees.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed created']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been created']);
     }
 
     public function update(Request $request, Employee $employee): RedirectResponse
@@ -62,7 +62,7 @@ class EmployeeController extends Controller
         $employee->save();
 
         return redirect()->route('employees.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed updated']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been updated']);
     }
 
     public function destroy(Employee $employee): RedirectResponse
@@ -70,6 +70,6 @@ class EmployeeController extends Controller
         $employee->delete();
 
         return redirect()->route('employees.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed deleted']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been deleted']);
     }
 }

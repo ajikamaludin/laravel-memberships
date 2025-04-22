@@ -22,6 +22,10 @@ class PermissionConstant
         ['label' => 'View Setting', 'name' => 'view-setting'],
 
         // #Add New Permission Below!
+		['label' => 'Delete Open Session', 'name' => 'delete-open-session'],
+		['label' => 'Update Open Session', 'name' => 'update-open-session'],
+		['label' => 'Create Open Session', 'name' => 'create-open-session'],
+		['label' => 'View Open Session', 'name' => 'view-open-session'],
         ['label' => 'View Membership', 'name' => 'view-membership'],
 
         ['label' => 'Delete Transaksi', 'name' => 'delete-transaction'],

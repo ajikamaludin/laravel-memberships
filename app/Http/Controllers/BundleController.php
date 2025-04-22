@@ -56,7 +56,7 @@ class BundleController extends Controller
         DB::commit();
 
         return redirect()->route('bundles.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed created']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been created']);
     }
 
     public function edit(Bundle $bundle): Response
@@ -89,7 +89,7 @@ class BundleController extends Controller
         DB::commit();
 
         return redirect()->route('bundles.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed updated']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been updated']);
     }
 
     public function destroy(Bundle $bundle): RedirectResponse
@@ -97,6 +97,6 @@ class BundleController extends Controller
         $bundle->delete();
 
         return redirect()->route('bundles.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed deleted']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been deleted']);
     }
 }

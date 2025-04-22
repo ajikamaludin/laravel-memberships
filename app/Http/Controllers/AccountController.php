@@ -41,7 +41,7 @@ class AccountController extends Controller
         ]);
 
         return redirect()->route('accounts.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed created']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been created']);
     }
 
     public function update(Request $request, Account $account): RedirectResponse
@@ -60,7 +60,7 @@ class AccountController extends Controller
         $account->save();
 
         return redirect()->route('accounts.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed updated']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been updated']);
     }
 
     public function destroy(Account $account): RedirectResponse
@@ -68,6 +68,6 @@ class AccountController extends Controller
         $account->delete();
 
         return redirect()->route('accounts.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed deleted']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been deleted']);
     }
 }

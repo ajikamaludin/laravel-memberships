@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->text('description')->nullable();
             $table->decimal('employee_fee_per_person')->nullable();
+            $table->smallInteger('flag')->default(0);
 
 
             // default

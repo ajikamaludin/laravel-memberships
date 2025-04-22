@@ -97,7 +97,7 @@ class TransactionController extends Controller
         DB::commit();
 
         return redirect()->route('transactions.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed created']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been created']);
     }
 
     public function edit(Transaction $transaction): Response
@@ -176,7 +176,7 @@ class TransactionController extends Controller
         DB::commit();
 
         return redirect()->route('transactions.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed updated']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been updated']);
     }
 
     public function destroy(Transaction $transaction): RedirectResponse
@@ -198,7 +198,7 @@ class TransactionController extends Controller
         DB::commit();
 
         return redirect()->route('transactions.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed deleted']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been deleted']);
     }
 
     public function print(Transaction $transaction)

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OpenSessionController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\MemberCategoryController;
@@ -54,6 +55,10 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // #Admin
+    Route::delete('open-sessions/{openSession}', [OpenSessionController::class, 'destroy'])->name('open-sessions.destroy');
+    Route::post('open-sessions', [OpenSessionController::class, 'store'])->name('open-sessions.store');
+    Route::get('open-sessions', [OpenSessionController::class, 'index'])->name('open-sessions.index');
+
     Route::get('memberships', [MembershipController::class, 'index'])->name('memberships.index');
 
     Route::get('transactions/{transaction}/print', [TransactionController::class, 'print'])->name('transactions.print');

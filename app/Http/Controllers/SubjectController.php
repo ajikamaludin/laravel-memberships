@@ -42,7 +42,7 @@ class SubjectController extends Controller
         ]);
 
         return redirect()->route('subjects.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed created']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been created']);
     }
 
     public function update(Request $request, Subject $subject): RedirectResponse
@@ -62,14 +62,19 @@ class SubjectController extends Controller
         $subject->save();
 
         return redirect()->route('subjects.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed updated']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been updated']);
     }
 
     public function destroy(Subject $subject): RedirectResponse
     {
+        if ($subject->flag == 1) {
+            return redirect()->route('subjects.index')
+                ->with('message', ['type' => 'error', 'message' => 'Tidak dapat menghapus kelas gym']);
+        }
+
         $subject->delete();
 
         return redirect()->route('subjects.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed deleted']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been deleted']);
     }
 }

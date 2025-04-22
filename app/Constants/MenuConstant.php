@@ -34,6 +34,15 @@ class MenuConstant
                 'active' => 'memberships.*',
                 'permission' => 'view-membership',
             ],
+
+            [
+                'name' => 'Absen Gym',
+                'show' => true,
+                'icon' => 'HiClipboardDocumentList',
+                'route' => route('open-sessions.index'),
+                'active' => 'open-sessions.*',
+                'permission' => 'view-open-session',
+            ],
             [
                 'name' => 'Master',
                 'show' => true,
@@ -113,6 +122,7 @@ class MenuConstant
             ],
 
             // # Add Generated Menu Here!
+
         ];
 
         return $menu;

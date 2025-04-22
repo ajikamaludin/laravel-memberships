@@ -46,7 +46,7 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('user.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed created']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been created']);
     }
 
     public function update(Request $request, User $user): RedirectResponse
@@ -76,7 +76,7 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('user.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed updated']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been updated']);
     }
 
     public function destroy(User $user): RedirectResponse
@@ -90,6 +90,6 @@ class UserController extends Controller
 
 
         return redirect()->route('user.index')
-            ->with('message', ['type' => 'success', 'message' => 'Item has beed deleted']);
+            ->with('message', ['type' => 'success', 'message' => 'Item has been deleted']);
     }
 }
