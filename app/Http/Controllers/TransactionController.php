@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bundle;
+use App\Models\Default\Setting;
 use App\Models\Journal;
 use App\Models\Membership;
 use App\Models\Transaction;
@@ -21,7 +22,9 @@ class TransactionController extends Controller
         if ($request->q) {
             // multi columns search 
             $query->where(function ($q) use ($request) {
-                $q->where('name', 'like', "%{$request->q}%");
+                $q->whereHas('member', function ($q) use ($request) {
+                    $q->where('name', 'like', "%{$request->q}%");
+                });
             });
         }
 
@@ -45,6 +48,7 @@ class TransactionController extends Controller
             'transaction_date' => 'required|date',
             'amount' => 'required|numeric',
             'discount' => 'nullable|numeric',
+            'items' => 'required|array',
             'items.*.name' => 'required|string',
             'items.*.price' => 'required|numeric',
             'items.*.bundle_id' => 'nullable|exists:bundles,id',
@@ -111,9 +115,10 @@ class TransactionController extends Controller
             'transaction_date' => 'required|date',
             'amount' => 'required|numeric',
             'discount' => 'nullable|numeric',
+            'items' => 'required|array',
             'items.*.name' => 'required|string',
-            'items.*.price' => 'required|string',
-            'items.*.bundle_id' => 'nullable|exists|bundles,id',
+            'items.*.price' => 'required|numeric',
+            'items.*.bundle_id' => 'nullable|exists:bundles,id',
         ]);
 
         DB::beginTransaction();
@@ -194,5 +199,20 @@ class TransactionController extends Controller
 
         return redirect()->route('transactions.index')
             ->with('message', ['type' => 'success', 'message' => 'Item has beed deleted']);
+    }
+
+    public function print(Transaction $transaction)
+    {
+        $package = $transaction->items()->where('bundle_id', '!=', null)->first();
+        $join_fee = $transaction->items()->where('bundle_id', null)->first();
+
+        return view('prints.invoices', [
+            'member' => $transaction->member,
+            'transaction' => $transaction->load(['member', 'account']),
+            'package' => $package?->bundle->name ?? ' - ',
+            'package_price' => formatIDR($package?->price ?? ''),
+            'join_fee' => formatIDR($join_fee?->price ?? ''),
+            'setting' => new Setting(),
+        ]);
     }
 }

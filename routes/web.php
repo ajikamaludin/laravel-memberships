@@ -53,28 +53,34 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // #Admin
-Route::resource('transactions', TransactionController::class);
-Route::delete('member-categories/{memberCategory}', [MemberCategoryController::class,'destroy'])->name('member-categories.destroy');
-Route::put('member-categories/{memberCategory}', [MemberCategoryController::class,'update'])->name('member-categories.update');
-Route::post('member-categories', [MemberCategoryController::class,'store'])->name('member-categories.store');
-Route::get('member-categories', [MemberCategoryController::class,'index'])->name('member-categories.index');
-Route::delete('members/{member}', [MemberController::class,'destroy'])->name('members.destroy');
-Route::put('members/{member}', [MemberController::class,'update'])->name('members.update');
-Route::post('members', [MemberController::class,'store'])->name('members.store');
-Route::get('members', [MemberController::class,'index'])->name('members.index');
-Route::delete('employees/{employee}', [EmployeeController::class,'destroy'])->name('employees.destroy');
-Route::put('employees/{employee}', [EmployeeController::class,'update'])->name('employees.update');
-Route::post('employees', [EmployeeController::class,'store'])->name('employees.store');
-Route::get('employees', [EmployeeController::class,'index'])->name('employees.index');
-Route::delete('accounts/{account}', [AccountController::class,'destroy'])->name('accounts.destroy');
-Route::put('accounts/{account}', [AccountController::class,'update'])->name('accounts.update');
-Route::post('accounts', [AccountController::class,'store'])->name('accounts.store');
-Route::get('accounts', [AccountController::class,'index'])->name('accounts.index');
-Route::resource('bundles', BundleController::class);
-Route::delete('subjects/{subject}', [SubjectController::class,'destroy'])->name('subjects.destroy');
-Route::put('subjects/{subject}', [SubjectController::class,'update'])->name('subjects.update');
-Route::post('subjects', [SubjectController::class,'store'])->name('subjects.store');
-Route::get('subjects', [SubjectController::class,'index'])->name('subjects.index');
+    Route::get('transactions/{transaction}/print', [TransactionController::class, 'print'])->name('transactions.print');
+    Route::resource('transactions', TransactionController::class);
+
+    Route::delete('member-categories/{memberCategory}', [MemberCategoryController::class, 'destroy'])->name('member-categories.destroy');
+    Route::put('member-categories/{memberCategory}', [MemberCategoryController::class, 'update'])->name('member-categories.update');
+    Route::post('member-categories', [MemberCategoryController::class, 'store'])->name('member-categories.store');
+    Route::get('member-categories', [MemberCategoryController::class, 'index'])->name('member-categories.index');
+
+    Route::get('members/{member}/print', [MemberController::class, 'print'])->name('members.print');
+    Route::get('members/{member}/show', [MemberController::class, 'show'])->name('members.show');
+    Route::delete('members/{member}', [MemberController::class, 'destroy'])->name('members.destroy');
+    Route::put('members/{member}', [MemberController::class, 'update'])->name('members.update');
+    Route::post('members', [MemberController::class, 'store'])->name('members.store');
+    Route::get('members', [MemberController::class, 'index'])->name('members.index');
+
+    Route::delete('employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
+    Route::put('employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update');
+    Route::post('employees', [EmployeeController::class, 'store'])->name('employees.store');
+    Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
+    Route::delete('accounts/{account}', [AccountController::class, 'destroy'])->name('accounts.destroy');
+    Route::put('accounts/{account}', [AccountController::class, 'update'])->name('accounts.update');
+    Route::post('accounts', [AccountController::class, 'store'])->name('accounts.store');
+    Route::get('accounts', [AccountController::class, 'index'])->name('accounts.index');
+    Route::resource('bundles', BundleController::class);
+    Route::delete('subjects/{subject}', [SubjectController::class, 'destroy'])->name('subjects.destroy');
+    Route::put('subjects/{subject}', [SubjectController::class, 'update'])->name('subjects.update');
+    Route::post('subjects', [SubjectController::class, 'store'])->name('subjects.store');
+    Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
     // 
 });
 

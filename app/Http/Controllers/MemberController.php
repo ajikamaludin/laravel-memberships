@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Default\Setting;
 use App\Models\Member;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Response;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class MemberController extends Controller
 {
@@ -36,6 +38,7 @@ class MemberController extends Controller
             'phone' => 'required|string|unique:members,phone',
             'photo' => 'nullable|string',
             'description' => 'nullable|string',
+            'address' => 'nullable|string',
         ]);
 
         $member = Member::create([
@@ -45,6 +48,7 @@ class MemberController extends Controller
             'phone' => $request->phone,
             'photo' => $request->photo,
             'description' => $request->description,
+            'address' => $request->address,
         ]);
 
         session()->flash('data', ['member' => $member]);
@@ -53,9 +57,8 @@ class MemberController extends Controller
 
     public function show(Member $member): Response
     {
-        // TODO
         return inertia('member/show', [
-            'data' => $member,
+            'member' => $member->load(['memberships.bundle', 'memberships.transaction', 'category']),
         ]);
     }
 
@@ -68,6 +71,7 @@ class MemberController extends Controller
             'phone' => 'required|string|unique:members,phone,' . $member->id,
             'photo' => 'nullable|string',
             'description' => 'nullable|string',
+            'address' => 'nullable|string',
         ]);
 
         $member->fill([
@@ -77,6 +81,7 @@ class MemberController extends Controller
             'phone' => $request->phone,
             'photo' => $request->photo,
             'description' => $request->description,
+            'address' => $request->address,
         ]);
 
         $member->save();
@@ -95,6 +100,10 @@ class MemberController extends Controller
 
     public function print(Member $member)
     {
-        // TODO: implement print card member
+        return view('prints.member-card', [
+            'member' => $member,
+            'setting' => new Setting(),
+            'qr_code' => QrCode::size(80)->generate($member->code),
+        ]);
     }
 }

@@ -15,4 +15,19 @@ class Membership extends Model
         'active_period_days',
         'expired_at',
     ];
+
+    public function bundle()
+    {
+        return $this->belongsTo(Bundle::class);
+    }
+
+    public function member()
+    {
+        return $this->belongsTo(Member::class);
+    }
+
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class);
+    }
 }

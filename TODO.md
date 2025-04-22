@@ -6,15 +6,14 @@
 -   [x] crud karyawan
 -   [x] crud kategori member
 -   [x] crud member
--   [ ] cetak kartu member
+-   [x] cetak kartu member
 -   [x] crud transactions
--   [ ] cetak invoices
+-   [x] cetak invoices
 -   [ ] list memberships
 -   [ ] crud sessions
 -   [ ] crud open sessions
--   [ ] crud payments
--   [ ] crud expense
--   [ ] crud income
+-   [ ] crud payments gaji
+-   [ ] crud expense / income
 -   [ ] laporan member datang
 -   [ ] laporan akumulasi member data per hari
 -   [ ] laporan akumulasi total kelas per coach

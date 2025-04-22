@@ -15,6 +15,7 @@ class Member extends Model
         'phone',
         'photo',
         'description',
+        'address',
     ];
 
     protected static function booted(): void
@@ -27,5 +28,10 @@ class Member extends Model
     public function category()
     {
         return $this->belongsTo(MemberCategory::class, 'member_category_id');
+    }
+
+    public function memberships()
+    {
+        return $this->hasMany(Membership::class);
     }
 }

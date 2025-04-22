@@ -28,6 +28,8 @@ export default function Setting(props) {
     const app_logo_url = extractValue(setting, 'app_logo')
     const { data, setData, post, processing, errors } = useForm({
         app_name: extractValue(setting, 'app_name'),
+        name: extractValue(setting, 'name'),
+        city: extractValue(setting, 'city'),
         app_logo: '',
     })
 
@@ -71,6 +73,21 @@ export default function Setting(props) {
                         error={errors.app_logo}
                         url={app_logo_url}
                         filemimes="image/jpg,image/jpeg,image/png"
+                    />
+
+                    <TextInput
+                        name="name"
+                        value={data.name}
+                        onChange={handleOnChange}
+                        label="Nama Bisnis"
+                        error={errors.name}
+                    />
+                    <TextInput
+                        name="city"
+                        value={data.city}
+                        onChange={handleOnChange}
+                        label="Kota"
+                        error={errors.city}
                     />
 
                     <div className="mt-4">

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { router } from '@inertiajs/react'
 import { usePrevious } from 'react-use'
 import { Head, Link } from '@inertiajs/react'
-import { HiPencil, HiTrash } from 'react-icons/hi2'
+import { HiPencil, HiPrinter, HiTrash } from 'react-icons/hi2'
 import { useModalState } from '@/hooks'
 
 import AuthenticatedLayout from '@/layouts/default/authenticated-layout'
@@ -107,39 +107,54 @@ export default function Index(props) {
                                         </td>
                                         <td>{transaction.account.name}</td>
                                         <td className="text-right">
-                                            <Dropdown>
-                                                <HasPermission p="update-transaction">
-                                                    <Dropdown.Item
-                                                        onClick={() =>
-                                                            router.visit(
-                                                                route(
-                                                                    'transactions.edit',
+                                            <div className="flex justify-end gap-2">
+                                                <a
+                                                    href={route(
+                                                        'transactions.print',
+                                                        transaction.id
+                                                    )}
+                                                    target="_blank"
+                                                >
+                                                    <Button>
+                                                        <HiPrinter />
+                                                    </Button>
+                                                </a>
+                                                <Dropdown>
+                                                    <HasPermission p="update-transaction">
+                                                        <Dropdown.Item
+                                                            onClick={() =>
+                                                                router.visit(
+                                                                    route(
+                                                                        'transactions.edit',
+                                                                        transaction
+                                                                    )
+                                                                )
+                                                            }
+                                                        >
+                                                            <div className="flex space-x-1 items-center">
+                                                                <HiPencil />
+                                                                <div>Edit</div>
+                                                            </div>
+                                                        </Dropdown.Item>
+                                                    </HasPermission>
+                                                    <HasPermission p="delete-transaction">
+                                                        <Dropdown.Item
+                                                            onClick={() =>
+                                                                handleDeleteClick(
                                                                     transaction
                                                                 )
-                                                            )
-                                                        }
-                                                    >
-                                                        <div className="flex space-x-1 items-center">
-                                                            <HiPencil />
-                                                            <div>Edit</div>
-                                                        </div>
-                                                    </Dropdown.Item>
-                                                </HasPermission>
-                                                <HasPermission p="delete-transaction">
-                                                    <Dropdown.Item
-                                                        onClick={() =>
-                                                            handleDeleteClick(
-                                                                transaction
-                                                            )
-                                                        }
-                                                    >
-                                                        <div className="flex space-x-1 items-center">
-                                                            <HiTrash />
-                                                            <div>Delete</div>
-                                                        </div>
-                                                    </Dropdown.Item>
-                                                </HasPermission>
-                                            </Dropdown>
+                                                            }
+                                                        >
+                                                            <div className="flex space-x-1 items-center">
+                                                                <HiTrash />
+                                                                <div>
+                                                                    Delete
+                                                                </div>
+                                                            </div>
+                                                        </Dropdown.Item>
+                                                    </HasPermission>
+                                                </Dropdown>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}

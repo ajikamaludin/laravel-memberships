@@ -89,7 +89,8 @@ export default function Form(props) {
             set_transaction_date(transaction.transaction_date)
             set_discount(transaction.discount)
             set_bundle(
-                transaction.items.filter((i) => i.bundle_id !== null)[0] ?? null
+                transaction.items.filter((i) => i.bundle_id !== null)[0]
+                    ?.bundle ?? null
             )
             // not use the join fee name , current condition the join fee is no bundle id
             set_join_fee(

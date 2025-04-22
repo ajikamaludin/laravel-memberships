@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { router, Head } from '@inertiajs/react'
+import { router, Head, Link } from '@inertiajs/react'
 import { usePrevious } from 'react-use'
 import {
     HiCreditCard,
@@ -113,23 +113,31 @@ export default function Index(props) {
                                         <td>{member.description}</td>
                                         <td className="text-end">
                                             <div className="flex justify-end gap-2">
-                                                <Button>
-                                                    <HiEye />
-                                                </Button>
+                                                <Link
+                                                    href={route(
+                                                        'members.show',
+                                                        member.id
+                                                    )}
+                                                >
+                                                    <Button>
+                                                        <HiEye />
+                                                    </Button>
+                                                </Link>
                                                 <Dropdown>
-                                                    <Dropdown.Item
-                                                        onClick={() =>
-                                                            handleDeleteClick(
-                                                                member
-                                                            )
-                                                        }
-                                                    >
-                                                        <div className="flex space-x-1 items-center">
+                                                    <Dropdown.Item>
+                                                        <a
+                                                            className="flex space-x-1 items-center"
+                                                            href={route(
+                                                                'members.print',
+                                                                member.id
+                                                            )}
+                                                            target="_blank"
+                                                        >
                                                             <HiPrinter />
                                                             <div>
                                                                 Cetak Kartu
                                                             </div>
-                                                        </div>
+                                                        </a>
                                                     </Dropdown.Item>
                                                     <HasPermission p="update-member">
                                                         <Dropdown.Item

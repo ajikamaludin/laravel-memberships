@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('photo')->nullable();
             $table->text('description')->nullable();
+            $table->text('address')->nullable();
 
             // default
             $table->timestamps();

@@ -20,6 +20,7 @@
         "maatwebsite/excel": "^3.1.64",
         "rap2hpoutre/fast-excel": "^5.6",
         "react/async": "^4.3",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/async": "^1.7.0",
         "tightenco/ziggy": "^2.5.2"
     },
