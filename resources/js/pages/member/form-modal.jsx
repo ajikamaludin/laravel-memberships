@@ -13,7 +13,7 @@ import {
 } from '@/components/index'
 
 export default function FormModal(props) {
-    const { modalState } = props
+    const { modalState, onCreated } = props
     const formState = {
         name: '',
         member_category_id: '',
@@ -58,7 +58,19 @@ export default function FormModal(props) {
             return
         }
         post(route('members.store'), {
-            onSuccess: () => handleClose(),
+            onSuccess: ({
+                props: {
+                    flash: {
+                        data: { member },
+                    },
+                },
+            }) => {
+                handleClose()
+                if ((typeof onCreated === 'function') === false) {
+                    return
+                }
+                onCreated(member)
+            },
         })
     }
 

@@ -9,6 +9,7 @@ use App\Models\Default\Permission;
 use App\Models\Default\Role;
 use App\Models\Default\Setting;
 use App\Models\Default\User;
+use App\Models\Member;
 use App\Models\MemberCategory;
 use App\Models\Subject;
 use App\Models\TrainingTime;
@@ -65,6 +66,18 @@ class DefaultSeeder extends Seeder
         }
 
         $this->subjects();
+
+        Member::create([
+            'member_category_id' => MemberCategory::inRandomOrder()->first()->id,
+            'name' => 'Budiman Nagasawa',
+            'phone' => '0812345678910',
+        ]);
+
+        Member::create([
+            'member_category_id' => MemberCategory::inRandomOrder()->first()->id,
+            'name' => 'Yatmo Ilku Subandino',
+            'phone' => '0812345678911',
+        ]);
     }
 
     private function subjects()

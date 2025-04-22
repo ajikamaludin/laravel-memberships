@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\MemberCategoryController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\EmployeeController;
@@ -52,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // #Admin
+Route::resource('transactions', TransactionController::class);
 Route::delete('member-categories/{memberCategory}', [MemberCategoryController::class,'destroy'])->name('member-categories.destroy');
 Route::put('member-categories/{memberCategory}', [MemberCategoryController::class,'update'])->name('member-categories.update');
 Route::post('member-categories', [MemberCategoryController::class,'store'])->name('member-categories.store');

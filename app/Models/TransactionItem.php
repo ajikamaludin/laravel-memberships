@@ -8,8 +8,13 @@ class TransactionItem extends Model
 {
     protected $fillable = [
         'transaction_id',
-        'package_id',
+        'bundle_id',
         'name',
         'price',
     ];
+
+    public function bundle()
+    {
+        return $this->belongsTo(Bundle::class);
+    }
 }

@@ -99,7 +99,9 @@ export default function SelectModalInput(props) {
         }
         setTableHeaders(
             params.headers.split('|').map((_, index) => {
-                return params.columns.split('|')[index]
+                return params.columns.split('|').filter((i) => i !== 'id')[
+                    index
+                ]
             })
         )
         setTableHeaderAlias(
@@ -180,7 +182,12 @@ export default function SelectModalInput(props) {
                 </div>
                 <TextInputError error={error} />
             </fieldset>
-            <Modal isOpen={isOpen} onClose={toggle} size={size} title={title}>
+            <Modal
+                isOpen={isOpen}
+                onClose={toggle}
+                size={size}
+                title={title}
+            >
                 <div className="mb-3"></div>
                 <SearchInput
                     value={search}

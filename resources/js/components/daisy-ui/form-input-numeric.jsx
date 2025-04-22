@@ -18,7 +18,7 @@ export default function FormInputNumeric({
     const className = error ? errorClassName : defaultClassName
 
     return (
-        <div className="fieldset">
+        <fieldset className="fieldset">
             <Label label={label} />
             <NumericFormat
                 className={className ?? ''}
@@ -40,6 +40,6 @@ export default function FormInputNumeric({
                 autoComplete="off"
             />
             <TextInputError error={error} />
-        </div>
+        </fieldset>
     )
 }

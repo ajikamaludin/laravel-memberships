@@ -7,7 +7,7 @@
 -   [x] crud kategori member
 -   [x] crud member
 -   [ ] cetak kartu member
--   [ ] crud transactions
+-   [x] crud transactions
 -   [ ] cetak invoices
 -   [ ] list memberships
 -   [ ] crud sessions

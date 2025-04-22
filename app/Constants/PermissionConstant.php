@@ -22,6 +22,11 @@ class PermissionConstant
         ['label' => 'View Setting', 'name' => 'view-setting'],
 
         // #Add New Permission Below!
+        ['label' => 'Delete Transaksi', 'name' => 'delete-transaction'],
+        ['label' => 'Update Transaksi', 'name' => 'update-transaction'],
+        ['label' => 'Create Transaksi', 'name' => 'create-transaction'],
+        ['label' => 'View Transaksi', 'name' => 'view-transaction'],
+
         ['label' => 'Delete Kategori Member', 'name' => 'delete-member-category'],
         ['label' => 'Update Kategori Member', 'name' => 'update-member-category'],
         ['label' => 'Create Kategori Member', 'name' => 'create-member-category'],

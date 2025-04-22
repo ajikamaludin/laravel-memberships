@@ -17,7 +17,7 @@ return new class extends Migration
 
             // relations
             $table->ulid('transaction_id')->nullable();
-            $table->ulid('package_id')->nullable();
+            $table->ulid('bundle_id')->nullable();
 
             // columns
             $table->string('name')->nullable();

@@ -17,6 +17,15 @@ class MenuConstant
                 'active' => 'dashboard',
                 'permission' => 'view-dashboard',
             ],
+
+            [
+                'name' => 'Transaksi',
+                'show' => true,
+                'icon' => 'HiCreditCard',
+                'route' => route('transactions.index'),
+                'active' => 'transactions.*',
+                'permission' => 'view-transaction',
+            ],
             [
                 'name' => 'Master',
                 'show' => true,
@@ -96,11 +105,6 @@ class MenuConstant
             ],
 
             // # Add Generated Menu Here!
-
-
-
-
-
 
         ];
 
