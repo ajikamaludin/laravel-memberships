@@ -19,8 +19,8 @@ return new class extends Migration
 
             // columns
             $table->string('name')->nullable();
-            $table->decimal('balance_amount', 24, 2)->nullable();
-            $table->decimal('balance_start', 24, 2)->nullable();
+            $table->decimal('balance_amount', 24, 2)->nullable()->default(0);
+            $table->decimal('balance_start', 24, 2)->nullable()->default(0);
 
             // default
             $table->timestamps();

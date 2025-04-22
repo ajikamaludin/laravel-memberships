@@ -18,10 +18,45 @@ class MenuConstant
                 'permission' => 'view-dashboard',
             ],
             [
-                'name' => 'User',
+                'name' => 'Master',
                 'show' => true,
-                'icon' => 'HiUser',
+                'icon' => 'HiClipboardDocumentList',
                 'items' => [
+                    [
+                        'name' => 'Kelas',
+                        'show' => true,
+                        'route' => route('subjects.index'),
+                        'active' => 'subjects.*',
+                        'permission' => 'view-subject',
+                    ],
+                    [
+                        'name' => 'Paket',
+                        'show' => true,
+                        'route' => route('bundles.index'),
+                        'active' => 'bundles.*',
+                        'permission' => 'view-bundle',
+                    ],
+                    [
+                        'name' => 'Akun',
+                        'show' => true,
+                        'route' => route('accounts.index'),
+                        'active' => 'accounts.*',
+                        'permission' => 'view-account',
+                    ],
+                ]
+            ],
+            [
+                'name' => 'Setting',
+                'show' => true,
+                'icon' => 'HiCog',
+                'items' => [
+                    [
+                        'name' => 'Umum',
+                        'show' => true,
+                        'route' => route('setting.index'),
+                        'active' => 'setting.index',
+                        'permission' => 'view-setting',
+                    ],
                     [
                         'name' => 'Roles',
                         'show' => true,
@@ -36,44 +71,14 @@ class MenuConstant
                         'active' => 'user.index',
                         'permission' => 'view-user',
                     ],
-                ],
-            ],
-            [
-                'name' => 'Setting',
-                'show' => true,
-                'icon' => 'HiCog',
-                'route' => route('setting.index'),
-                'active' => 'setting.index',
-                'permission' => 'view-setting',
+                ]
             ],
 
             // # Add Generated Menu Here!
+
+
+
         ];
-
-        if (Route::has('shortlink.link.index')) {
-            $menu = array_merge(
-                $menu,
-                [[
-                    'name' => 'Shortlink',
-                    'show' => true,
-                    'icon' => 'HiGlobeAlt',
-                    'route' => route('shortlink.link.index'),
-                    'active' => 'shortlink.link.*',
-                    'permission' => 'view-shortlink',
-                ]],
-            );
-        }
-
-        if (Route::has('custom-form.forms.index')) {
-            $menu = array_merge($menu, [[
-                'name' => 'Custom Form',
-                'show' => true,
-                'icon' => 'HiInformationCircle',
-                'route' => route('custom-form.forms.index'),
-                'active' => 'custom-form.forms.*',
-                'permission' => 'view-custom-form',
-            ]]);
-        }
 
         return $menu;
     }

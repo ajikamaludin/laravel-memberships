@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\BundleController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Default\FileController;
 use App\Http\Controllers\Default\GeneralController;
 use App\Http\Controllers\Default\PermissionController;
@@ -46,6 +49,15 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // #Admin
+Route::delete('accounts/{account}', [AccountController::class,'destroy'])->name('accounts.destroy');
+Route::put('accounts/{account}', [AccountController::class,'update'])->name('accounts.update');
+Route::post('accounts', [AccountController::class,'store'])->name('accounts.store');
+Route::get('accounts', [AccountController::class,'index'])->name('accounts.index');
+Route::resource('bundles', BundleController::class);
+Route::delete('subjects/{subject}', [SubjectController::class,'destroy'])->name('subjects.destroy');
+Route::put('subjects/{subject}', [SubjectController::class,'update'])->name('subjects.update');
+Route::post('subjects', [SubjectController::class,'store'])->name('subjects.store');
+Route::get('subjects', [SubjectController::class,'index'])->name('subjects.index');
     // 
 });
 

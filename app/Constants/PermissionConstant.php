@@ -19,9 +19,23 @@ class PermissionConstant
         ['label' => 'View Role', 'name' => 'view-role'],
         ['label' => 'Delete Role', 'name' => 'delete-role'],
 
-	['label' => 'View Setting', 'name' => 'view-setting'],
+        ['label' => 'View Setting', 'name' => 'view-setting'],
 
-	// #Add New Permission Below!
+        // #Add New Permission Below!
+        ['label' => 'Delete Akun', 'name' => 'delete-account'],
+        ['label' => 'Update Akun', 'name' => 'update-account'],
+        ['label' => 'Create Akun', 'name' => 'create-account'],
+        ['label' => 'View Akun', 'name' => 'view-account'],
+
+        ['label' => 'Delete Paket', 'name' => 'delete-bundle'],
+        ['label' => 'Update Paket', 'name' => 'update-bundle'],
+        ['label' => 'Create Paket', 'name' => 'create-bundle'],
+        ['label' => 'View Paket', 'name' => 'view-bundle'],
+
+        ['label' => 'Delete Kelas', 'name' => 'delete-subject'],
+        ['label' => 'Update Kelas', 'name' => 'update-subject'],
+        ['label' => 'Create Kelas', 'name' => 'create-subject'],
+        ['label' => 'View Kelas', 'name' => 'view-subject'],
 
 
     ];

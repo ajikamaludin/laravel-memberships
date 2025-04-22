@@ -10,6 +10,7 @@ use App\Models\Default\Role;
 use App\Models\Default\Setting;
 use App\Models\Default\User;
 use App\Models\MemberCategory;
+use App\Models\Subject;
 use App\Models\TrainingTime;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -83,8 +84,12 @@ class DefaultSeeder extends Seeder
             ],
             [
                 'name' => 'GYM',
-                'employee_fee_per_person' => ''
+                'employee_fee_per_person' => '0'
             ]
         ];
+
+        foreach ($subjects as $s) {
+            Subject::create($s);
+        }
     }
 }

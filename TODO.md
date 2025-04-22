@@ -1,8 +1,8 @@
 ### TODO
 
--   [ ] crud kelas
--   [ ] crud paket
--   [ ] crud akun
+-   [x] crud kelas
+-   [x] crud paket
+-   [x] crud akun
 -   [ ] crud karyawan
 -   [ ] crud member
 -   [ ] cetak kartu member
