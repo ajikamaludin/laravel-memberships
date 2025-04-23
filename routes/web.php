@@ -20,6 +20,7 @@ use App\Http\Controllers\Default\ProfileController;
 use App\Http\Controllers\Default\RoleController;
 use App\Http\Controllers\Default\SettingController;
 use App\Http\Controllers\Default\UserController;
+use App\Http\Controllers\ReportAccountController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
@@ -66,6 +67,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('reports/employee_accumulate_session', [ReportController::class, 'employee_accumulate_session'])->name('reports.employee_accumulate_session');
     Route::get('reports/employee_accumulate_fee', [ReportController::class, 'employee_accumulate_fee'])->name('reports.employee_accumulate_fee');
     Route::get('reports/employee_fee', [ReportController::class, 'employee_fee'])->name('reports.employee_fee');
+
+    Route::get('reports/balance_sheet', [ReportAccountController::class, 'balance_sheet'])->name('reports.balance_sheet');
 
     Route::get('employee-payments/{employeePayment}/print', [EmployeePaymentController::class, 'print'])->name('employee-payments.print');
     Route::resource('employee-payments', EmployeePaymentController::class);

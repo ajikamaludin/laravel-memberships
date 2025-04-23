@@ -11,4 +11,9 @@ class Account extends Model
         'balance_amount',
         'balance_start',
     ];
+
+    public function items()
+    {
+        return $this->hasMany(Journal::class, 'account_id');
+    }
 }

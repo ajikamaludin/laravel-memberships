@@ -59,7 +59,7 @@ class MenuConstant
                 'permission' => 'view-employee-payment',
             ],
             [
-                'name' => 'Keuangan',
+                'name' => 'Keuangan ( KAS )',
                 'show' => true,
                 'icon' => 'HiDocumentCurrencyDollar',
                 'route' => route('journals.index'),
@@ -169,7 +169,13 @@ class MenuConstant
                         'active' => 'reports.employee_fee',
                         'permission' => 'view-report',
                     ],
-
+                    [
+                        'name' => 'Laba/Rugi',
+                        'show' => true,
+                        'route' => route('reports.balance_sheet'),
+                        'active' => 'reports.balance_sheet',
+                        'permission' => 'view-report',
+                    ],
                 ],
             ],
             [

@@ -89,7 +89,7 @@ export default function Index(props) {
                             <thead>
                                 <tr>
                                     <th>Nama</th>
-                                    <th>Saldo Awal</th>
+                                    {/* <th>Saldo Awal</th> */}
                                     <th />
                                 </tr>
                             </thead>
@@ -97,9 +97,9 @@ export default function Index(props) {
                                 {data.map((account, index) => (
                                     <tr key={account.id}>
                                         <td>{account.name}</td>
-                                        <td>
+                                        {/* <td>
                                             {formatIDR(account.balance_start)}
-                                        </td>
+                                        </td> */}
 
                                         <td className="text-end">
                                             <Dropdown>

@@ -71,13 +71,13 @@ export default function FormModal(props) {
                     label="Nama"
                     error={errors.name}
                 />
-                <FormInputNumeric
+                {/* <FormInputNumeric
                     name="balance_start"
                     value={data.balance_start}
                     onChange={handleOnChange}
                     label="Saldo Awal"
                     error={errors.balance_start}
-                />
+                /> */}
 
                 <div className="flex items-center space-x-2 mt-4">
                     <Button
