@@ -137,6 +137,14 @@ class MenuConstant
 
             // # Add Generated Menu Here!
 
+            [
+                'name' => 'Keuangan',
+                'show' => true,
+                'icon' => 'HiDocumentCurrencyDollar',
+                'route' => route('journals.index'),
+                'active' => 'journals.*',
+                'permission' => 'view-journal',
+            ],
 
 
         ];

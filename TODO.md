@@ -12,7 +12,7 @@
 -   [x] list memberships
 -   [x] crud open sessions
 -   [x] crud sessions
--   [ ] crud expense / income
+-   [x] crud expense / income
 -   [ ] crud payments gaji
 
 -   [ ] laporan member datang

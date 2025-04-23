@@ -13,6 +13,7 @@ import {
     HiCalendar,
     HiCreditCard,
     HiOutlineClock,
+    HiDocumentCurrencyDollar,
 } from 'react-icons/hi2'
 import { LuDisc3 } from 'react-icons/lu'
 
@@ -32,6 +33,7 @@ const Icons = {
     LuDisc3: LuDisc3,
     HiCreditCard: HiCreditCard,
     HiOutlineClock: HiOutlineClock,
+    HiDocumentCurrencyDollar: HiDocumentCurrencyDollar,
 }
 
 const ItemIcon = ({ icon, ...rest }) => {

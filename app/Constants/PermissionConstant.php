@@ -22,6 +22,11 @@ class PermissionConstant
         ['label' => 'View Setting', 'name' => 'view-setting'],
 
         // #Add New Permission Below!
+        ['label' => 'Delete Keuangan', 'name' => 'delete-journal'],
+        ['label' => 'Update Keuangan', 'name' => 'update-journal'],
+        ['label' => 'Create Keuangan', 'name' => 'create-journal'],
+        ['label' => 'View Keuangan', 'name' => 'view-journal'],
+
         ['label' => 'Delete Waktu Sesi', 'name' => 'delete-training-time'],
         ['label' => 'Update Waktu Sesi', 'name' => 'update-training-time'],
         ['label' => 'Create Waktu Sesi', 'name' => 'create-training-time'],

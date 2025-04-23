@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Default\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Journal extends Model
 {
@@ -18,6 +19,8 @@ class Journal extends Model
         'model',
         'model_id',
     ];
+
+    protected $appends = ['type_text'];
 
     protected static function booted(): void
     {
@@ -51,5 +54,10 @@ class Journal extends Model
     public function account()
     {
         return $this->belongsTo(Account::class);
+    }
+
+    public function typeText(): Attribute
+    {
+        return Attribute::make(get: fn() => $this->type == self::TYPE_IN ? 'Pemasukan' : 'Pengeluaran');
     }
 }
