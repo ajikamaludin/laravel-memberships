@@ -2,6 +2,7 @@ import React from 'react'
 import { Head } from '@inertiajs/react'
 
 import AuthenticatedLayout from '@/layouts/default/authenticated-layout'
+import { formatIDR } from '@/utils'
 
 export default function Dashboard(props) {
     return (
@@ -31,16 +32,35 @@ export default function Dashboard(props) {
                     </div>
                     <div className="stats shadow flex-1 bg-base-100 border border-base-300">
                         <div className="stat">
-                            <div className="stat-title">Empty</div>
-                            <div className="stat-value text-primary">0</div>
+                            <div className="stat-title">Member</div>
+                            <div className="stat-value text-primary">
+                                {props.member_count}
+                            </div>
                         </div>
                     </div>
                     <div className="stats shadow flex-1 bg-base-100 border border-base-300">
                         <div className="stat">
-                            <div className="stat-title">Empty</div>
-                            <div className="stat-value text-primary">0</div>
+                            <div className="stat-title">Membership</div>
+                            <div className="stat-value text-primary">
+                                {props.membership_count}
+                            </div>
                         </div>
                     </div>
+                    {props.accounts.map((account) => (
+                        <div
+                            className="stats shadow flex-1 bg-base-100 border border-base-300"
+                            key={account.id}
+                        >
+                            <div className="stat">
+                                <div className="stat-title">
+                                    Saldo {account.name}
+                                </div>
+                                <div className="stat-value text-primary">
+                                    {formatIDR(account.balance_amount)}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </AuthenticatedLayout>
