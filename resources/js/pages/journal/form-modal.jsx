@@ -13,6 +13,7 @@ import {
     SelectOptionArray,
     SelectOptionObject,
 } from '@/components/index'
+import { dateToString, formatDate } from '@/utils'
 
 export default function FormModal(props) {
     const { modalState } = props
@@ -21,7 +22,7 @@ export default function FormModal(props) {
         account_id: '',
         type: 'in',
         amount: '',
-        transaction_date: new Date(),
+        transaction_date: dateToString(new Date()),
         account: null,
     }
 

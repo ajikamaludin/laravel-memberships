@@ -14,7 +14,7 @@ import {
 } from '@/components/index'
 import FormMember from '../member/form-modal'
 import { useModalState } from '@/hooks'
-import { formatDate, formatIDR } from '@/utils'
+import { dateToString, formatDate, formatIDR } from '@/utils'
 import HasPermission from '@/components/common/has-permission'
 
 export default function Show(props) {
@@ -22,7 +22,9 @@ export default function Show(props) {
 
     const [member, set_member] = useState(null)
     const [account, set_account] = useState(null)
-    const [transaction_date, set_transaction_date] = useState(new Date())
+    const [transaction_date, set_transaction_date] = useState(
+        dateToString(new Date())
+    )
     const [discount, set_discount] = useState('')
 
     const [bundle, set_bundle] = useState(null)

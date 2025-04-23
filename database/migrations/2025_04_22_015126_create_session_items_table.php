@@ -19,8 +19,11 @@ return new class extends Migration
             $table->ulid('session_id')->nullable();
             $table->ulid('member_id')->nullable();
             $table->ulid('membership_id')->nullable();
+            $table->ulid('subject_id')->nullable();
 
             // columns
+            $table->timestamp('session_date')->nullable();
+            $table->smallInteger('flag')->default(0);
 
             // default
             $table->timestamps();

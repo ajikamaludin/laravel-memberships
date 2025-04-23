@@ -123,6 +123,56 @@ class MenuConstant
                 ]
             ],
             [
+                'name' => 'Laporan',
+                'show' => true,
+                'icon' => 'HiClipboardDocumentList',
+                'items' => [
+                    [
+                        'name' => 'Member Datang',
+                        'show' => true,
+                        'route' => route('reports.member-sessions'),
+                        'active' => 'reports.member-sessions',
+                        'permission' => 'view-report',
+                    ],
+                    [
+                        'name' => 'Akumulasi Member Datang Per Hari',
+                        'show' => true,
+                        'route' => route('reports.member_accumulate_per_day'),
+                        'active' => 'reports.member_accumulate_per_day',
+                        'permission' => 'view-report',
+                    ],
+                    [
+                        'name' => 'Absen Member Datang Per Kelas & Sesi',
+                        'show' => true,
+                        'route' => route('reports.member_accumulate_session'),
+                        'active' => 'reports.member_accumulate_session',
+                        'permission' => 'view-report',
+                    ],
+                    [
+                        'name' => 'Akumulasi Total Sesi Kelas Per Coach',
+                        'show' => true,
+                        'route' => route('reports.employee_accumulate_session'),
+                        'active' => 'reports.employee_accumulate_session',
+                        'permission' => 'view-report',
+                    ],
+                    [
+                        'name' => 'Akumulasi Total Fee Per Coach',
+                        'show' => true,
+                        'route' => route('reports.employee_accumulate_fee'),
+                        'active' => 'reports.employee_accumulate_fee',
+                        'permission' => 'view-report',
+                    ],
+                    [
+                        'name' => 'Fee Coach',
+                        'show' => true,
+                        'route' => route('reports.employee_fee'),
+                        'active' => 'reports.employee_fee',
+                        'permission' => 'view-report',
+                    ],
+
+                ],
+            ],
+            [
                 'name' => 'Setting',
                 'show' => true,
                 'icon' => 'HiCog',

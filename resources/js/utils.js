@@ -23,7 +23,7 @@ export const dateToString = (date) => {
     if (isEmpty(date)) {
         return ''
     }
-    return dayjs(date).format('MM/DD/YYYY')
+    return dayjs(date).format('YYYY-MM-DD')
 }
 
 export const converToDate = (date) => {

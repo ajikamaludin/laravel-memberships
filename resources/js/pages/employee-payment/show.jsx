@@ -30,7 +30,8 @@ export default function Form(props) {
         return total + item.subtotal
     }, 0)
 
-    const total = Number(subtotal) + Number(basic_salary_per_session ?? 0)
+    const session_pay = Number(basic_salary_per_session ?? 0) * items.length
+    const total = Number(subtotal) + session_pay
 
     useEffect(() => {
         if (!isEmpty(employeePayment)) {
@@ -176,6 +177,16 @@ export default function Form(props) {
                                             <td className="text-right font-bold">
                                                 {formatIDR(subtotal)}
                                             </td>
+                                        </tr>
+                                        <tr>
+                                            <td colSpan={5}></td>
+                                            <td className="text-right font-bold">
+                                                Jumlah Sesi x Gaji Pokok
+                                            </td>
+                                            <td className="text-right font-bold">
+                                                {formatIDR(session_pay)}
+                                            </td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td colSpan={5}></td>

@@ -15,7 +15,7 @@ import SelectModalMember from '../member/select-modal'
 import { useModalState } from '@/hooks'
 import { HiXMark } from 'react-icons/hi2'
 import { toast } from 'sonner'
-import { showToast } from '@/utils'
+import { dateToString, showToast } from '@/utils'
 
 export default function Form(props) {
     const {
@@ -29,7 +29,7 @@ export default function Form(props) {
     const [subject, set_subject] = useState(null)
     const [employee, set_employee] = useState('')
     const [training_time, set_training_time] = useState('')
-    const [session_date, set_session_date] = useState(new Date())
+    const [session_date, set_session_date] = useState(dateToString(new Date()))
     const [items, set_items] = useState([])
 
     const handleToggleModalMember = () => {

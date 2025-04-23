@@ -7,6 +7,7 @@ use App\Models\Member;
 use App\Models\Membership;
 use App\Models\OpenSession;
 use App\Models\Subject;
+use App\Models\SubjectSessionItem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,8 @@ class OpenSessionController extends Controller
 {
     public function index(Request $request): Response
     {
-        $query = OpenSession::query()
+        $query = SubjectSessionItem::query()
+            ->where('flag', 1)
             ->with(['member', 'subject', 'membership']);
 
         if ($request->q) {
@@ -73,11 +75,12 @@ class OpenSessionController extends Controller
         DB::beginTransaction();
         $membership->increment('session_quote_used');
 
-        OpenSession::create([
+        SubjectSessionItem::create([
             'member_id' => $member->id,
             'subject_id' => $subject->id,
             'membership_id' => $membership->id,
-            'session_date' => now(),
+            'session_date' => now()->format('Y-m-d'),
+            'flag' => 1
         ]);
         DB::commit();
 
@@ -85,7 +88,7 @@ class OpenSessionController extends Controller
             ->with('message', ['type' => 'success', 'message' => 'Item has been created']);
     }
 
-    public function destroy(OpenSession $openSession): RedirectResponse
+    public function destroy(SubjectSessionItem $openSession): RedirectResponse
     {
         $openSession->membership()->decrement('session_quote_used');
         $openSession->delete();

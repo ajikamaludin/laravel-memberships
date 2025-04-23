@@ -16,11 +16,11 @@ class EmployeePaymentItem extends Model
 
     public function subjectSession()
     {
-        return $this->belongsTo(SubjectSession::class);
+        return $this->belongsTo(SubjectSession::class)->withTrashed();
     }
 
     public function subject()
     {
-        return $this->belongsTo(Subject::class);
+        return $this->belongsTo(Subject::class)->withTrashed();
     }
 }

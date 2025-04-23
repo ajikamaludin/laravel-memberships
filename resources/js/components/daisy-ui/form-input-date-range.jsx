@@ -12,8 +12,9 @@ import { isEmpty } from 'lodash'
  * @returns
  *
  * Example :
+ * // {start_date: '', end_date: ''}
  * <FormInputDateRange
- *     value={dates} // {startDate: '', endDate: ''}
+ *     value={dates}
  *     label={'Date Range'}
  *     onChange={(dates) => handle(input, date)}
  * />

@@ -15,6 +15,6 @@ class TransactionItem extends Model
 
     public function bundle()
     {
-        return $this->belongsTo(Bundle::class);
+        return $this->belongsTo(Bundle::class)->withTrashed();
     }
 }

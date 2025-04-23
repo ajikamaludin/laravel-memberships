@@ -15,17 +15,17 @@ class SubjectSession extends Model
 
     public function subject()
     {
-        return $this->belongsTo(Subject::class);
+        return $this->belongsTo(Subject::class)->withTrashed();
     }
 
     public function employee()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Employee::class)->withTrashed();
     }
 
     public function trainingTime()
     {
-        return $this->belongsTo(TrainingTime::class);
+        return $this->belongsTo(TrainingTime::class)->withTrashed();
     }
 
     public function items()

@@ -11,4 +11,9 @@ class Employee extends Model
         'position',
         'basic_salary_per_session',
     ];
+
+    public function subjectSessions()
+    {
+        return $this->hasMany(SubjectSession::class);
+    }
 }

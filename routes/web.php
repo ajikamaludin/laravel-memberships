@@ -20,6 +20,7 @@ use App\Http\Controllers\Default\ProfileController;
 use App\Http\Controllers\Default\RoleController;
 use App\Http\Controllers\Default\SettingController;
 use App\Http\Controllers\Default\UserController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 // define module as main route
@@ -59,6 +60,13 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // #Admin
+    Route::get('reports/member-sessions', [ReportController::class, 'member_session'])->name('reports.member-sessions');
+    Route::get('reports/member_accumulate_per_day', [ReportController::class, 'member_accumulate_per_day'])->name('reports.member_accumulate_per_day');
+    Route::get('reports/member_accumulate_session', [ReportController::class, 'member_accumulate_session'])->name('reports.member_accumulate_session');
+    Route::get('reports/employee_accumulate_session', [ReportController::class, 'employee_accumulate_session'])->name('reports.employee_accumulate_session');
+    Route::get('reports/employee_accumulate_fee', [ReportController::class, 'employee_accumulate_fee'])->name('reports.employee_accumulate_fee');
+    Route::get('reports/employee_fee', [ReportController::class, 'employee_fee'])->name('reports.employee_fee');
+
     Route::get('employee-payments/{employeePayment}/print', [EmployeePaymentController::class, 'print'])->name('employee-payments.print');
     Route::resource('employee-payments', EmployeePaymentController::class);
 

@@ -7,6 +7,7 @@ use App\Models\Subject;
 use App\Models\SubjectSession;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Inertia\Response;
 
@@ -57,7 +58,7 @@ class SubjectSessionController extends Controller
             'subject_id' => $request->subject_id,
             'employee_id' => $request->employee_id,
             'training_time_id' => $request->training_time_id,
-            'session_date' => $request->session_date,
+            'session_date' => Carbon::parse($request->session_date)->format('Y-m-d'),
         ]);
 
         $subject = Subject::find($request->subject_id);
@@ -79,6 +80,8 @@ class SubjectSessionController extends Controller
             $sesi->items()->create([
                 'membership_id' => $membership->id,
                 'member_id' => $item['member_id'],
+                'subject_id' => $request->subject_id,
+                'session_date' => Carbon::parse($request->session_date)->format('Y-m-d'),
             ]);
         }
         DB::commit();
@@ -116,7 +119,7 @@ class SubjectSessionController extends Controller
             'subject_id' => $request->subject_id,
             'employee_id' => $request->employee_id,
             'training_time_id' => $request->training_time_id,
-            'session_date' => $request->session_date,
+            'session_date' => Carbon::parse($request->session_date)->format('Y-m-d'),
         ]);
 
         $subjectSession->save();
@@ -140,6 +143,8 @@ class SubjectSessionController extends Controller
             $subjectSession->items()->create([
                 'membership_id' => $membership->id,
                 'member_id' => $item['member_id'],
+                'subject_id' => $request->subject_id,
+                'session_date' => Carbon::parse($request->session_date)->format('Y-m-d'),
             ]);
         }
         DB::commit();

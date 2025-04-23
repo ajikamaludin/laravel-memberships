@@ -8,6 +8,7 @@ class PermissionConstant
 {
     const LIST = [
         ['label' => 'View Dashboard', 'name' => 'view-dashboard'],
+        ['label' => 'View Laporan', 'name' => 'view-report'],
 
         ['label' => 'Create User', 'name' => 'create-user'],
         ['label' => 'Update User', 'name' => 'update-user'],
@@ -82,8 +83,6 @@ class PermissionConstant
         ['label' => 'Update Kelas', 'name' => 'update-subject'],
         ['label' => 'Create Kelas', 'name' => 'create-subject'],
         ['label' => 'View Kelas', 'name' => 'view-subject'],
-
-
     ];
 
     public static function all()

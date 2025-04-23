@@ -16,11 +16,12 @@
 -   [x] crud payments gaji
 -   [x] cetak slip gaji
 
--   [ ] laporan member datang
--   [ ] laporan akumulasi member data per hari
--   [ ] laporan akumulasi total kelas per coach
--   [ ] laporan akumulasi total fee per coach
--   [ ] laporan absensi member data per kelas dan sesi
--   [ ] laporan fee coach
--   [ ] laporan laba rugi
+-   [x] laporan member datang -> filter tanggal
+-   [x] laporan akumulasi member data per hari -> filter tanggal
+-   [x] laporan akumulasi total kelas per coach -> filter bulan & tahun
+-   [x] laporan akumulasi total fee per coach -> filter bulan & tahun
+-   [x] laporan absensi member data per kelas dan sesi -> filter tanggal
+-   [x] laporan fee coach -> filter tanggal
+
+-   [ ] laporan laba rugi -> filter tanggal tampilan pendapatan total ada child pendapatan per akun - biaya total ada child biaya per akun
 -   [ ] laporan kas
