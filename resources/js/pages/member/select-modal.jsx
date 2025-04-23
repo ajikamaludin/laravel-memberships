@@ -18,7 +18,7 @@ export default function SelectModal(props) {
             q,
             subject_id: subjectId,
         },
-        'api.members.table'
+        'api.members.index'
     )
 
     const handleItemClick = (item) => {

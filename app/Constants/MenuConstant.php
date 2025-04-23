@@ -51,6 +51,22 @@ class MenuConstant
                 'permission' => 'view-open-session',
             ],
             [
+                'name' => 'Gaji Karyawan',
+                'show' => true,
+                'icon' => 'HiDocumentCurrencyDollar',
+                'route' => route('employee-payments.index'),
+                'active' => 'employee-payments.*',
+                'permission' => 'view-employee-payment',
+            ],
+            [
+                'name' => 'Keuangan',
+                'show' => true,
+                'icon' => 'HiDocumentCurrencyDollar',
+                'route' => route('journals.index'),
+                'active' => 'journals.*',
+                'permission' => 'view-journal',
+            ],
+            [
                 'name' => 'Master',
                 'show' => true,
                 'icon' => 'HiClipboardDocumentList',
@@ -137,14 +153,7 @@ class MenuConstant
 
             // # Add Generated Menu Here!
 
-            [
-                'name' => 'Keuangan',
-                'show' => true,
-                'icon' => 'HiDocumentCurrencyDollar',
-                'route' => route('journals.index'),
-                'active' => 'journals.*',
-                'permission' => 'view-journal',
-            ],
+
 
 
         ];

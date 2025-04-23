@@ -174,7 +174,7 @@ class TransactionController extends Controller
         Journal::create([
             'account_id' => $request->account_id,
             'type' => Journal::TYPE_IN,
-            'amount' => $request->amount - $request->discount,
+            'amount' => $request->amount,
             'transaction_date' => $request->transaction_date,
             'description' => 'Pendapatan Transaksi Membership',
             'model' => Transaction::class,

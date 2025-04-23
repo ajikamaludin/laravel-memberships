@@ -15,7 +15,7 @@ import {
     Card,
 } from '@/components/index'
 import FormModal from './form-modal'
-import { formatIDR } from '@/utils'
+import { formatDate, formatIDR } from '@/utils'
 
 export default function Index(props) {
     const {
@@ -88,9 +88,10 @@ export default function Index(props) {
                         <table className="table mb-4">
                             <thead>
                                 <tr>
+                                    <th>Tanggal</th>
                                     <th>Akun</th>
                                     <th>Tipe</th>
-                                    <th>Jumlah</th>
+                                    <th className="text-right">Jumlah</th>
                                     <th>Keterangan</th>
                                     <th />
                                 </tr>
@@ -98,9 +99,16 @@ export default function Index(props) {
                             <tbody>
                                 {data.map((journal, index) => (
                                     <tr key={journal.id}>
+                                        <td>
+                                            {formatDate(
+                                                journal.transaction_date
+                                            )}
+                                        </td>
                                         <td>{journal.account.name}</td>
                                         <td>{journal.type_text}</td>
-                                        <td>{formatIDR(journal.amount)}</td>
+                                        <td className="text-right">
+                                            {formatIDR(journal.amount)}
+                                        </td>
                                         <td>{journal.description}</td>
                                         <td className="text-end">
                                             <Dropdown>

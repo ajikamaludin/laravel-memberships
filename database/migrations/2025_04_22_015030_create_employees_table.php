@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('position')->nullable();
             $table->decimal('basic_salary_per_session', 24, 2)->nullable();
+            $table->text('description')->nullable();
 
             // default
             $table->timestamps();

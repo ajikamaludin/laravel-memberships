@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeePaymentController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\TrainingTimeController;
 use App\Http\Controllers\SubjectSessionController;
@@ -58,14 +59,19 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // #Admin
-Route::delete('journals/{journal}', [JournalController::class,'destroy'])->name('journals.destroy');
-Route::put('journals/{journal}', [JournalController::class,'update'])->name('journals.update');
-Route::post('journals', [JournalController::class,'store'])->name('journals.store');
-Route::get('journals', [JournalController::class,'index'])->name('journals.index');
-Route::delete('training-times/{trainingTime}', [TrainingTimeController::class,'destroy'])->name('training-times.destroy');
-Route::put('training-times/{trainingTime}', [TrainingTimeController::class,'update'])->name('training-times.update');
-Route::post('training-times', [TrainingTimeController::class,'store'])->name('training-times.store');
-Route::get('training-times', [TrainingTimeController::class,'index'])->name('training-times.index');
+    Route::get('employee-payments/{employeePayment}/print', [EmployeePaymentController::class, 'print'])->name('employee-payments.print');
+    Route::resource('employee-payments', EmployeePaymentController::class);
+
+    Route::delete('journals/{journal}', [JournalController::class, 'destroy'])->name('journals.destroy');
+    Route::put('journals/{journal}', [JournalController::class, 'update'])->name('journals.update');
+    Route::post('journals', [JournalController::class, 'store'])->name('journals.store');
+    Route::get('journals', [JournalController::class, 'index'])->name('journals.index');
+
+    Route::delete('training-times/{trainingTime}', [TrainingTimeController::class, 'destroy'])->name('training-times.destroy');
+    Route::put('training-times/{trainingTime}', [TrainingTimeController::class, 'update'])->name('training-times.update');
+    Route::post('training-times', [TrainingTimeController::class, 'store'])->name('training-times.store');
+    Route::get('training-times', [TrainingTimeController::class, 'index'])->name('training-times.index');
+
     Route::resource('subject-sessions', SubjectSessionController::class);
 
     Route::delete('open-sessions/{openSession}', [OpenSessionController::class, 'destroy'])->name('open-sessions.destroy');

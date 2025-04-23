@@ -38,11 +38,11 @@ export default function AuthenticatedLayout({
                 show={showingNavigationDropdown}
                 setShow={setShowingNavigationDropdown}
             />
-            <main className="ml-0 transition md:ml-64">
+            <main className="ml-0 transition lg:ml-64">
                 <nav className="">
                     <div className="mx-auto px-4 py-2">
-                        <div className="flex justify-between sm:justify-end">
-                            <div className="-mr-2 flex items-center sm:hidden space-x-2">
+                        <div className="flex justify-between lg:justify-end">
+                            <div className="-mr-2 flex items-center lg:hidden space-x-2">
                                 <button
                                     onClick={() =>
                                         setShowingNavigationDropdown(

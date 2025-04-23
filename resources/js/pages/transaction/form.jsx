@@ -109,26 +109,28 @@ export default function Form(props) {
             <div>
                 <Card>
                     <div className="flex flex-col gap-2 justify-between">
-                        <FormInputDate
-                            label="Tanggal"
-                            value={transaction_date}
-                            onChange={(date) => set_transaction_date(date)}
-                            error={errors.transaction_date}
-                        />
-                        <SelectModalInput
-                            label="Akun Penerimaan Pembayaran"
-                            value={account}
-                            onChange={(item) => set_account(item)}
-                            onRemove={() => set_account(null)}
-                            error={errors.account_id}
-                            params={{
-                                table: 'accounts',
-                                columns: 'id|name',
-                                headers: 'Nama',
-                                display_name: 'name',
-                                orderby: 'updated_at.desc',
-                            }}
-                        />
+                        <div className="grid grid-cols-2 gap-2">
+                            <FormInputDate
+                                label="Tanggal"
+                                value={transaction_date}
+                                onChange={(date) => set_transaction_date(date)}
+                                error={errors.transaction_date}
+                            />
+                            <SelectModalInput
+                                label="Akun Penerimaan Pembayaran"
+                                value={account}
+                                onChange={(item) => set_account(item)}
+                                onRemove={() => set_account(null)}
+                                error={errors.account_id}
+                                params={{
+                                    table: 'accounts',
+                                    columns: 'id|name',
+                                    headers: 'Nama',
+                                    display_name: 'name',
+                                    orderby: 'updated_at.desc',
+                                }}
+                            />
+                        </div>
                         <SelectModalInput
                             label="Member"
                             value={member}
@@ -151,36 +153,38 @@ export default function Form(props) {
                                 </div>
                             }
                         />
-                        <SelectModalInput
-                            label="Paket"
-                            value={bundle}
-                            onChange={(item) => set_bundle(item)}
-                            onRemove={() => set_bundle(null)}
-                            error={errors.bundle_id}
-                            params={{
-                                table: 'bundles',
-                                columns: 'id|name|price',
-                                headers: 'Nama|Harga',
-                                display_name: 'name|price',
-                                orderby: 'updated_at.desc',
-                            }}
-                        />
-                        <TextInput
-                            label="Harga Paket"
-                            value={formatIDR(bundle?.price ?? 0)}
-                            onChange={() => {}}
-                            readOnly={true}
-                        />
-                        <FormInputNumeric
-                            label="Join Fee"
-                            value={join_fee}
-                            onChange={(e) => set_join_fee(e.target.value)}
-                        />
-                        <FormInputNumeric
-                            label="Diskon"
-                            value={discount}
-                            onChange={(e) => set_discount(e.target.value)}
-                        />
+                        <div className="grid grid-cols-2 gap-2">
+                            <SelectModalInput
+                                label="Paket"
+                                value={bundle}
+                                onChange={(item) => set_bundle(item)}
+                                onRemove={() => set_bundle(null)}
+                                error={errors.bundle_id}
+                                params={{
+                                    table: 'bundles',
+                                    columns: 'id|name|price',
+                                    headers: 'Nama|Harga',
+                                    display_name: 'name|price',
+                                    orderby: 'updated_at.desc',
+                                }}
+                            />
+                            <TextInput
+                                label="Harga Paket"
+                                value={formatIDR(bundle?.price ?? 0)}
+                                onChange={() => {}}
+                                readOnly={true}
+                            />
+                            <FormInputNumeric
+                                label="Join Fee"
+                                value={join_fee}
+                                onChange={(e) => set_join_fee(e.target.value)}
+                            />
+                            <FormInputNumeric
+                                label="Diskon"
+                                value={discount}
+                                onChange={(e) => set_discount(e.target.value)}
+                            />
+                        </div>
                         <div className="text-xl font-bold flex flex-row gap-2">
                             <div>TOTAL : </div>
                             <div>{formatIDR(amount)}</div>

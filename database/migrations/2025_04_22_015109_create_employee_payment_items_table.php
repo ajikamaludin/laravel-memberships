@@ -17,9 +17,12 @@ return new class extends Migration
 
             // relations
             $table->ulid('employee_payment_id')->nullable();
-            $table->ulid('session_id')->nullable();
+            $table->ulid('subject_session_id')->nullable();
+            $table->ulid('subject_id')->nullable();
 
             // columns
+            $table->decimal('person_amount', 24, 2)->nullable(); // dari subject_session_items
+            $table->decimal('employee_fee_per_person', 24, 2)->nullable(); // dari subject
 
             // default
             $table->timestamps();

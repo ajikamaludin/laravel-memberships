@@ -21,7 +21,11 @@ class SubjectSessionController extends Controller
         if ($request->q) {
             // multi columns search 
             $query->where(function ($q) use ($request) {
-                $q->where('name', 'like', "%{$request->q}%");
+                $q->whereHas('employee', function ($q) use ($request) {
+                    $q->where('name', 'like', "%{$request->q}%");
+                })->orWhereHas('subject', function ($q) use ($request) {
+                    $q->where('name', 'like', "%{$request->q}%");
+                });
             });
         }
 

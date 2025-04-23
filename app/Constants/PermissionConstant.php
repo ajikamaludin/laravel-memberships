@@ -22,6 +22,11 @@ class PermissionConstant
         ['label' => 'View Setting', 'name' => 'view-setting'],
 
         // #Add New Permission Below!
+        ['label' => 'Delete Gaji Karyawan', 'name' => 'delete-employee-payment'],
+        ['label' => 'Update Gaji Karyawan', 'name' => 'update-employee-payment'],
+        ['label' => 'Create Gaji Karyawan', 'name' => 'create-employee-payment'],
+        ['label' => 'View Gaji Karyawan', 'name' => 'view-employee-payment'],
+
         ['label' => 'Delete Keuangan', 'name' => 'delete-journal'],
         ['label' => 'Update Keuangan', 'name' => 'update-journal'],
         ['label' => 'Create Keuangan', 'name' => 'create-journal'],

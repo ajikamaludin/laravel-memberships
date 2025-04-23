@@ -17,10 +17,14 @@ return new class extends Migration
 
             // relations
             $table->ulid('employee_id')->nullable();
+            $table->ulid('account_id')->nullable();
+
 
             // columns
             $table->timestamp('payment_date')->nullable();
             $table->decimal('basic_salary_per_session', 24, 2)->nullable();
+            $table->decimal('amount', 24, 2)->nullable();
+            $table->text('description')->nullable();
 
             // default
             $table->timestamps();

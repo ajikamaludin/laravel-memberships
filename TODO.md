@@ -13,7 +13,8 @@
 -   [x] crud open sessions
 -   [x] crud sessions
 -   [x] crud expense / income
--   [ ] crud payments gaji
+-   [x] crud payments gaji
+-   [x] cetak slip gaji
 
 -   [ ] laporan member datang
 -   [ ] laporan akumulasi member data per hari

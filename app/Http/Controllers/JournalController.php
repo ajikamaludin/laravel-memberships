@@ -17,7 +17,10 @@ class JournalController extends Controller
         if ($request->q) {
             // multi columns search 
             $query->where(function ($q) use ($request) {
-                $q->where('description', 'like', "%{$request->q}%");
+                $q->where('description', 'like', "%{$request->q}%")
+                    ->orWhereHas('account', function ($q) use ($request) {
+                        $q->where('name', 'like', "%{$request->q}%");
+                    });
             });
         }
 

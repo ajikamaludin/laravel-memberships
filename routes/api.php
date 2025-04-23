@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\MemberController;
+use App\Http\Controllers\Api\SubjectSessionController;
 use App\Http\Controllers\Default\Api\SelectTableController;
 use App\Http\Controllers\Default\FileController;
 use App\Http\Middleware\JwtCustomApiVerification;
@@ -26,5 +27,6 @@ Route::middleware([JwtCustomApiVerification::class])
 
 Route::middleware([JwtCustomApiVerification::class])
     ->group(function () {
-        Route::get('members', [MemberController::class, 'index'])->name('api.members.table');
+        Route::get('members', [MemberController::class, 'index'])->name('api.members.index');
+        Route::get('subject-sessions', [SubjectSessionController::class, 'index'])->name('api.subject-sessions.index');
     });

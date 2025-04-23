@@ -128,11 +128,11 @@ export default function SidebarNav({ user, show, setShow }) {
         <div
             className={`${
                 show ? 'block' : 'hidden'
-            } flex flex-col h-screen overflow-y-auto transition-all duration-300 transform fixed top-0 start-0 bottom-0 z-50 w-full md:w-64 bg-base-200 md:block md:translate-x-0 md:end-auto md:bottom-0 `}
+            } flex flex-col h-screen overflow-y-auto transition-all duration-300 transform fixed top-0 start-0 bottom-0 z-50 w-full md:w-64 bg-base-200 lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 `}
         >
             <div className="flex flex-col justify-between flex-1">
                 <div className="">
-                    <div className="flex flex-row justify-between md:justify-center p-6">
+                    <div className="flex flex-row justify-between items-center lg:justify-center p-6">
                         <div className="">
                             {app_logo ? (
                                 <img
@@ -149,7 +149,7 @@ export default function SidebarNav({ user, show, setShow }) {
                             )}
                         </div>
                         <div
-                            className="block md:hidden"
+                            className="block lg:hidden"
                             onClick={() => setShow(false)}
                         >
                             <HiXMark className="w-5 h-5" />
@@ -157,16 +157,6 @@ export default function SidebarNav({ user, show, setShow }) {
                     </div>
                     <nav className="w-full">
                         <ul className="w-full menu rounded-box">
-                            {/* <SidebarItem
-                                item={{
-                                    name: 'Dashboard',
-                                    show: true,
-                                    icon: HiChartPie,
-                                    route: route('dashboard'),
-                                    active: 'dashboard',
-                                    permission: 'view-dashboard',
-                                }}
-                            /> */}
                             {menus.map((item) => (
                                 <div key={`item-${item.name}`}>
                                     {item.items === undefined ? (
