@@ -22,10 +22,20 @@ class PermissionConstant
         ['label' => 'View Setting', 'name' => 'view-setting'],
 
         // #Add New Permission Below!
-		['label' => 'Delete Open Session', 'name' => 'delete-open-session'],
-		['label' => 'Update Open Session', 'name' => 'update-open-session'],
-		['label' => 'Create Open Session', 'name' => 'create-open-session'],
-		['label' => 'View Open Session', 'name' => 'view-open-session'],
+        ['label' => 'Delete Waktu Sesi', 'name' => 'delete-training-time'],
+        ['label' => 'Update Waktu Sesi', 'name' => 'update-training-time'],
+        ['label' => 'Create Waktu Sesi', 'name' => 'create-training-time'],
+        ['label' => 'View Waktu Sesi', 'name' => 'view-training-time'],
+
+        ['label' => 'Delete Sesi Kelas', 'name' => 'delete-subject-session'],
+        ['label' => 'Update Sesi Kelas', 'name' => 'update-subject-session'],
+        ['label' => 'Create Sesi Kelas', 'name' => 'create-subject-session'],
+        ['label' => 'View Sesi Kelas', 'name' => 'view-subject-session'],
+
+        ['label' => 'Delete Absen Gym', 'name' => 'delete-open-session'],
+        ['label' => 'Create Absen Gym', 'name' => 'create-open-session'],
+        ['label' => 'View Absen Gym', 'name' => 'view-open-session'],
+
         ['label' => 'View Membership', 'name' => 'view-membership'],
 
         ['label' => 'Delete Transaksi', 'name' => 'delete-transaction'],

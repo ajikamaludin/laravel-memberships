@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { router } from '@inertiajs/react'
 import { usePrevious } from 'react-use'
 import { Head, Link } from '@inertiajs/react'
-import { HiPencil, HiPrinter, HiTrash } from 'react-icons/hi2'
+import { HiEye, HiPencil, HiPrinter, HiTrash } from 'react-icons/hi2'
 import { useModalState } from '@/hooks'
 
 import AuthenticatedLayout from '@/layouts/default/authenticated-layout'
@@ -81,7 +81,7 @@ export default function Index(props) {
                         </div>
                     </div>
                     <div className="overflow-x-auto">
-                        <table className="table">
+                        <table className="table mt-4">
                             <thead>
                                 <tr>
                                     <th>Tanggal</th>
@@ -120,6 +120,21 @@ export default function Index(props) {
                                                     </Button>
                                                 </a>
                                                 <Dropdown>
+                                                    <Dropdown.Item
+                                                        onClick={() =>
+                                                            router.visit(
+                                                                route(
+                                                                    'transactions.show',
+                                                                    transaction
+                                                                )
+                                                            )
+                                                        }
+                                                    >
+                                                        <div className="flex space-x-1 items-center">
+                                                            <HiEye />
+                                                            <div>Detail</div>
+                                                        </div>
+                                                    </Dropdown.Item>
                                                     <HasPermission p="update-transaction">
                                                         <Dropdown.Item
                                                             onClick={() =>

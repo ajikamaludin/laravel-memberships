@@ -96,8 +96,15 @@ class TransactionController extends Controller
         ]);
         DB::commit();
 
-        return redirect()->route('transactions.index')
+        return redirect()->route('transactions.show', $transaction)
             ->with('message', ['type' => 'success', 'message' => 'Item has been created']);
+    }
+
+    public function show(Transaction $transaction): Response
+    {
+        return inertia('transaction/show', [
+            'transaction' => $transaction->load(['items.bundle', 'member', 'account']),
+        ]);
     }
 
     public function edit(Transaction $transaction): Response

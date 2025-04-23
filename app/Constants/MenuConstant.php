@@ -34,7 +34,14 @@ class MenuConstant
                 'active' => 'memberships.*',
                 'permission' => 'view-membership',
             ],
-
+            [
+                'name' => 'Absen Sesi Kelas',
+                'show' => true,
+                'icon' => 'HiOutlineClock',
+                'route' => route('subject-sessions.index'),
+                'active' => 'subject-sessions.*',
+                'permission' => 'view-subject-session',
+            ],
             [
                 'name' => 'Absen Gym',
                 'show' => true,
@@ -61,6 +68,13 @@ class MenuConstant
                         'route' => route('bundles.index'),
                         'active' => 'bundles.*',
                         'permission' => 'view-bundle',
+                    ],
+                    [
+                        'name' => 'Waktu Sesi',
+                        'show' => true,
+                        'route' => route('training-times.index'),
+                        'active' => 'training-times.*',
+                        'permission' => 'view-training-time',
                     ],
                     [
                         'name' => 'Akun',
@@ -122,6 +136,8 @@ class MenuConstant
             ],
 
             // # Add Generated Menu Here!
+
+
 
         ];
 

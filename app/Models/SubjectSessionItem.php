@@ -11,4 +11,19 @@ class SubjectSessionItem extends Model
         'member_id',
         'membership_id',
     ];
+
+    public function subjectSession()
+    {
+        return $this->belongsTo(SubjectSession::class);
+    }
+
+    public function member()
+    {
+        return $this->belongsTo(Member::class);
+    }
+
+    public function membership()
+    {
+        return $this->belongsTo(Membership::class);
+    }
 }

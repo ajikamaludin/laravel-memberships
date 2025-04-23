@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TrainingTimeController;
+use App\Http\Controllers\SubjectSessionController;
 use App\Http\Controllers\OpenSessionController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\TransactionController;
@@ -55,6 +57,12 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // #Admin
+Route::delete('training-times/{trainingTime}', [TrainingTimeController::class,'destroy'])->name('training-times.destroy');
+Route::put('training-times/{trainingTime}', [TrainingTimeController::class,'update'])->name('training-times.update');
+Route::post('training-times', [TrainingTimeController::class,'store'])->name('training-times.store');
+Route::get('training-times', [TrainingTimeController::class,'index'])->name('training-times.index');
+    Route::resource('subject-sessions', SubjectSessionController::class);
+
     Route::delete('open-sessions/{openSession}', [OpenSessionController::class, 'destroy'])->name('open-sessions.destroy');
     Route::post('open-sessions', [OpenSessionController::class, 'store'])->name('open-sessions.store');
     Route::get('open-sessions', [OpenSessionController::class, 'index'])->name('open-sessions.index');
