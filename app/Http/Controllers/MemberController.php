@@ -51,7 +51,7 @@ class MemberController extends Controller
             'address' => $request->address,
         ]);
 
-        session()->flash('data', ['member' => $member]);
+        session()->flash('data', ['member' => $member->load('category')]);
         session()->flash('message', ['type' => 'success', 'message' => 'Item has been created']);
     }
 

@@ -21,6 +21,7 @@ export default function Form(props) {
     const [account, set_account] = useState(null)
     const [employee, set_employee] = useState(null)
     const [payment_date, set_payment_date] = useState(null)
+    const [payment_date_end, set_payment_date_end] = useState(null)
     const [basic_salary_per_session, set_basic_salary_per_session] =
         useState('')
     const [description, set_description] = useState('')
@@ -38,6 +39,7 @@ export default function Form(props) {
             set_account(employeePayment.account)
             set_employee(employeePayment.employee)
             set_payment_date(employeePayment.payment_date)
+            set_payment_date_end(employeePayment.payment_date_end)
             set_basic_salary_per_session(
                 employeePayment.basic_salary_per_session
             )
@@ -93,9 +95,9 @@ export default function Form(props) {
                     <div className="flex flex-col gap-2 justify-between">
                         <div className="grid grid-cols-2 gap-2">
                             <TextInput
-                                value={formatDate(payment_date)}
+                                value={employeePayment.periode_text}
                                 readOnly={true}
-                                label="Tanggal"
+                                label="Periode"
                             />
                             <TextInput
                                 label="Akun Pembayaran"

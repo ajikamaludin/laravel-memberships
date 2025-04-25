@@ -30,10 +30,12 @@ class SubjectSessionController extends Controller
             $query->where('employee_id', $request->employee_id);
         }
 
-        if ($request->selected_date) {
+        if ($request->selected_date && $request->selected_date_end) {
             $selected_date = Carbon::parse($request->selected_date);
-            $query->whereMonth('session_date', $selected_date->month)
-                ->whereYear('session_date', $selected_date->year);
+            $selected_date_end = Carbon::parse($request->selected_date_end);
+
+            $query->where('session_date', '>=', $selected_date->format('Y-m-d'))
+                ->where('session_date', '<=', $selected_date_end->format('Y-m-d'));
         }
 
         $query->orderBy('created_at', 'desc');

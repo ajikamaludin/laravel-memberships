@@ -8,6 +8,7 @@ class MemberCategory extends Model
 {
     protected $fillable = [
         'name',
+        'join_fee',
         'description',
     ];
 }

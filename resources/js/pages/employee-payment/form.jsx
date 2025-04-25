@@ -35,6 +35,7 @@ export default function Form(props) {
     const [account, set_account] = useState(null)
     const [employee, set_employee] = useState(null)
     const [payment_date, set_payment_date] = useState(null)
+    const [payment_date_end, set_payment_date_end] = useState(null)
     const [basic_salary_per_session, set_basic_salary_per_session] =
         useState('')
     const [description, set_description] = useState('')
@@ -48,11 +49,23 @@ export default function Form(props) {
         set_items([])
     }
 
+    const handleSetDateEnd = (date) => {
+        set_payment_date_end(date)
+
+        set_employee(null)
+        set_basic_salary_per_session('')
+        set_items([])
+    }
+
     const handleSetEmployee = (employee) => {
-        if (payment_date === null) {
-            showToast('Pilih tanggal terlebih dahulu', 'error')
+        if (payment_date === null || payment_date_end === null) {
+            showToast(
+                'Pilih periode/tanggal harus dipilih terlebih dahulu',
+                'error'
+            )
             return
         }
+
         setLoading(true)
         set_employee(employee)
         set_basic_salary_per_session(employee.basic_salary_per_session)
@@ -62,6 +75,7 @@ export default function Form(props) {
             route('api.subject-sessions.index', {
                 employee_id: employee.id,
                 selected_date: payment_date,
+                selected_date_end: payment_date_end,
                 all: 'true',
             })
         )
@@ -127,6 +141,7 @@ export default function Form(props) {
             account_id: account?.id,
             employee_id: employee?.id,
             payment_date,
+            payment_date_end,
             basic_salary_per_session,
             amount: total,
             description,
@@ -158,6 +173,7 @@ export default function Form(props) {
             set_account(employeePayment.account)
             set_employee(employeePayment.employee)
             set_payment_date(employeePayment.payment_date)
+            set_payment_date_end(employeePayment.payment_date_end)
             set_basic_salary_per_session(
                 employeePayment.basic_salary_per_session
             )
@@ -184,28 +200,38 @@ export default function Form(props) {
             <div>
                 <Card>
                     <div className="flex flex-col gap-2 justify-between">
+                        <fieldset className="fieldset">
+                            <Label label="Periode" />
+                            <div className="grid grid-cols-2 gap-2">
+                                <FormInputDate
+                                    value={payment_date}
+                                    onChange={(date) => handleSetDate(date)}
+                                    error={errors.payment_date}
+                                />
+                                <FormInputDate
+                                    value={payment_date_end}
+                                    onChange={(date) => handleSetDateEnd(date)}
+                                    error={errors.payment_date_end}
+                                />
+                            </div>
+                        </fieldset>
+
+                        <SelectModalInput
+                            label="Akun Pembayaran"
+                            value={account}
+                            onChange={(item) => {
+                                set_account(item)
+                            }}
+                            error={errors.account_id}
+                            params={{
+                                table: 'accounts',
+                                columns: 'id|name',
+                                headers: 'Nama',
+                                display_name: 'name',
+                                orderby: 'updated_at.desc',
+                            }}
+                        />
                         <div className="grid grid-cols-2 gap-2">
-                            <FormInputDate
-                                value={payment_date}
-                                onChange={(date) => handleSetDate(date)}
-                                label="Tanggal"
-                                error={errors.payment_date}
-                            />
-                            <SelectModalInput
-                                label="Akun Pembayaran"
-                                value={account}
-                                onChange={(item) => {
-                                    set_account(item)
-                                }}
-                                error={errors.account_id}
-                                params={{
-                                    table: 'accounts',
-                                    columns: 'id|name',
-                                    headers: 'Nama',
-                                    display_name: 'name',
-                                    orderby: 'updated_at.desc',
-                                }}
-                            />
                             <SelectModalInput
                                 label="Karyawan"
                                 onChange={(item) => handleSetEmployee(item)}
@@ -375,6 +401,7 @@ export default function Form(props) {
                 modalState={modalSubjectSession}
                 employeeId={employee?.id}
                 selectedDate={payment_date}
+                selectedDateEnd={payment_date_end}
                 onItemClick={addItem}
             />
         </AuthenticatedLayout>

@@ -200,35 +200,39 @@ export default function SelectModalInput(props) {
                     </div>
                 ) : (
                     <>
-                        <table className="table mt-3">
-                            <thead>
-                                <tr>
-                                    {table_header_alias.map((h) => (
-                                        <th
-                                            className="capitalize"
-                                            key={`header-${h}`}
-                                        >
-                                            {h}
-                                        </th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {data.data?.map((item) => (
-                                    <tr
-                                        onClick={() => handleItemSelected(item)}
-                                        key={item.id}
-                                        className="hover:bg-base-300"
-                                    >
-                                        {table_headers.map((h) => (
-                                            <td key={`${item.id}-${h}`}>
-                                                {item[h]}
-                                            </td>
+                        <div className="w-full overflow-x-auto">
+                            <table className="table mt-3">
+                                <thead>
+                                    <tr>
+                                        {table_header_alias.map((h) => (
+                                            <th
+                                                className="capitalize"
+                                                key={`header-${h}`}
+                                            >
+                                                {h}
+                                            </th>
                                         ))}
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {data.data?.map((item) => (
+                                        <tr
+                                            onClick={() =>
+                                                handleItemSelected(item)
+                                            }
+                                            key={item.id}
+                                            className="hover:bg-base-300"
+                                        >
+                                            {table_headers.map((h) => (
+                                                <td key={`${item.id}-${h}`}>
+                                                    {item[h]}
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
 
                         <div className="w-full flex justify-center mt-2">
                             <PaginationApi

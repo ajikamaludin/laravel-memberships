@@ -86,7 +86,7 @@ export default function Index(props) {
                         <table className="table mt-6">
                             <thead>
                                 <tr>
-                                    <th>Tanggal</th>
+                                    <th>Periode</th>
                                     <th>Nama</th>
                                     <th className="text-right">Jumlah</th>
                                     <th>Keterangan</th>
@@ -96,7 +96,7 @@ export default function Index(props) {
                             <tbody>
                                 {data.map((item, index) => (
                                     <tr key={item.id}>
-                                        <td>{formatDate(item.payment_date)}</td>
+                                        <td>{item.periode_text}</td>
                                         <td>{item.employee.name}</td>
                                         <td className="text-right">
                                             {formatIDR(item.amount)}

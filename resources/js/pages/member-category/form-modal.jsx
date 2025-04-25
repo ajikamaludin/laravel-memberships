@@ -2,12 +2,13 @@ import React, { useEffect } from 'react'
 import { useForm } from '@inertiajs/react'
 import { isEmpty } from 'lodash'
 
-import { Modal, Button, TextInput } from '@/components/index'
+import { Modal, Button, TextInput, FormInputNumeric } from '@/components/index'
 
 export default function FormModal(props) {
     const { modalState } = props
     const formState = {
         name: '',
+        join_fee: '',
     }
 
     const { data, setData, post, put, processing, errors, clearErrors } =
@@ -69,6 +70,13 @@ export default function FormModal(props) {
                     onChange={handleOnChange}
                     label="Nama"
                     error={errors.name}
+                />
+                <FormInputNumeric
+                    name="join_fee"
+                    value={data.join_fee}
+                    onChange={handleOnChange}
+                    label="Join Fee"
+                    error={errors.join_fee}
                 />
 
                 <div className="flex items-center space-x-2 mt-4">

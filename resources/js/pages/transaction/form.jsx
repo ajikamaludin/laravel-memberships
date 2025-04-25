@@ -11,8 +11,10 @@ import {
     SelectModalInput,
     FormInputNumeric,
     FormInputDate,
+    Label,
 } from '@/components/index'
 import FormMember from '../member/form-modal'
+import SelectMember from '../member/select-modal'
 import { useModalState } from '@/hooks'
 import { dateToString, formatIDR } from '@/utils'
 
@@ -24,6 +26,7 @@ export default function Form(props) {
 
     const [processing, setProcessing] = useState(false)
 
+    const selectMember = useModalState()
     const formMember = useModalState()
 
     const [member, set_member] = useState(null)
@@ -41,6 +44,16 @@ export default function Form(props) {
         Number(join_fee ?? 0) -
         Number(discount ?? 0)
 
+    const handleSetMember = (member) => {
+        if (member === null) {
+            set_member(null)
+            set_join_fee(0)
+            return
+        }
+        set_member(member)
+        set_join_fee(member.category.join_fee)
+    }
+
     const handleSubmit = () => {
         let items = []
         if (bundle !== null) {
@@ -51,7 +64,7 @@ export default function Form(props) {
             })
         }
 
-        if (join_fee !== '') {
+        if (Number(join_fee ?? 0) !== 0) {
             items.push({
                 name: 'Join Fee',
                 price: join_fee,
@@ -133,28 +146,28 @@ export default function Form(props) {
                                 }}
                             />
                         </div>
-                        <SelectModalInput
-                            label="Member"
-                            value={member}
-                            onChange={(item) => set_member(item)}
-                            onRemove={() => set_member(null)}
-                            error={errors.member_id}
-                            size={'lg'}
-                            params={{
-                                table: 'members',
-                                columns: 'id|code|name|phone|gender',
-                                headers: 'Kode|Nama|No.Telp|Gender',
-                                display_name: 'code|name|phone',
-                                orderby: 'updated_at.desc',
-                            }}
-                            additionalButton={
-                                <div className="ml-1">
+                        <fieldset className="fieldset">
+                            <Label label="Member" />
+                            <div className="w-full flex flex-row gap-2 items-center">
+                                <div className="flex-1">
+                                    <TextInput
+                                        readOnly={true}
+                                        value={`${
+                                            member
+                                                ? `${member.code} | ${member.name} | ${member.phone} `
+                                                : ''
+                                        }`}
+                                        onClick={() => selectMember.toggle()}
+                                        error={errors.member_id}
+                                    />
+                                </div>
+                                <div className="">
                                     <Button onClick={formMember.toggle}>
                                         <HiPlus />
                                     </Button>
                                 </div>
-                            }
-                        />
+                            </div>
+                        </fieldset>
                         <div className="grid grid-cols-2 gap-2">
                             <SelectModalInput
                                 label="Paket"
@@ -210,7 +223,11 @@ export default function Form(props) {
             </div>
             <FormMember
                 modalState={formMember}
-                onCreated={set_member}
+                onCreated={handleSetMember}
+            />
+            <SelectMember
+                modalState={selectMember}
+                onItemClick={handleSetMember}
             />
         </AuthenticatedLayout>
     )

@@ -14,14 +14,14 @@
     <table style="border-collapse: collapse; width: 100%;">
       <tbody>
         <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;width: 100px;">Periode</td>
+          <td style="width: 1px; padding: 10px; border: 1px solid #ddd;">:</td>
+          <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">{{ $payment->periode_text }}</td>
+      </tr>
+        <tr>
             <td style="padding: 10px; border: 1px solid #ddd;width: 100px;">Karyawan</td>
             <td style="width: 1px; padding: 10px; border: 1px solid #ddd;">:</td>
             <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">{{ $payment->employee->name }}</td>
-        </tr>
-        <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;width: 100px;">Tanggal</td>
-            <td style="width: 1px; padding: 10px; border: 1px solid #ddd;">:</td>
-            <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">{{ formatDate($payment->payment_date) }}</td>
         </tr>
         <tr>
           <td style="padding: 10px; border: 1px solid #ddd;width: 100px;">Gaji Pokok</td>

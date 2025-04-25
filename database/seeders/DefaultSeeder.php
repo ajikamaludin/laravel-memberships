@@ -51,8 +51,8 @@ class DefaultSeeder extends Seeder
             'role_id' => $role->id,
         ]);
 
-        foreach (['Baru', 'Lama'] as $cat) {
-            MemberCategory::create(['name' => $cat]);
+        foreach (['Lama', 'Baru'] as $index => $cat) {
+            MemberCategory::create(['name' => $cat, 'join_fee' => $index * 20000]);
         }
 
         foreach (['QRIS', 'Cash', 'Transfer'] as $method) {

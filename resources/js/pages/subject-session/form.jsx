@@ -157,11 +157,15 @@ export default function Form(props) {
                         </div>
                         <div className="flex flex-col gap-2">
                             <Label label="Member" />
-                            <TextInput
+                            <div
+                                className="input text-gray-500 w-full"
                                 placeholder="pilih member"
                                 onClick={handleToggleModalMember}
-                            />
-                            <div className="w-full">
+                                readOnly={true}
+                            >
+                                pilih member
+                            </div>
+                            <div className="w-full overflow-x-auto">
                                 <table className="table">
                                     <thead>
                                         <tr>

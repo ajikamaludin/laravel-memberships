@@ -19,6 +19,7 @@ return new class extends Migration
 
             // columns
             $table->string('name')->nullable();
+            $table->decimal('join_fee', 24, 4)->nullable();
             $table->text('description')->nullable();
 
             // default

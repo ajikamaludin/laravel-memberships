@@ -15,6 +15,7 @@ import {
     Card,
 } from '@/components/index'
 import FormModal from './form-modal'
+import { formatIDR } from '@/utils'
 
 export default function Index(props) {
     const {
@@ -90,6 +91,7 @@ export default function Index(props) {
                             <thead>
                                 <tr>
                                     <th>Nama</th>
+                                    <th>Join Fee</th>
                                     <th />
                                 </tr>
                             </thead>
@@ -97,6 +99,9 @@ export default function Index(props) {
                                 {data.map((memberCategory, index) => (
                                     <tr key={memberCategory.id}>
                                         <td>{memberCategory.name}</td>
+                                        <td>
+                                            {formatIDR(memberCategory.join_fee)}
+                                        </td>
                                         <td className="text-end">
                                             <Dropdown>
                                                 <HasPermission p="update-member-category">

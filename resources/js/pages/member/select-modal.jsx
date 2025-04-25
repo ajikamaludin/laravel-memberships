@@ -55,34 +55,36 @@ export default function SelectModal(props) {
                 </div>
             ) : (
                 <>
-                    <table className="table mt-3">
-                        <thead>
-                            <tr>
-                                <th>Member ID</th>
-                                <th>Nama</th>
-                                <th>Kategori</th>
-                                <th>No.Telp</th>
-                                <th>Gender</th>
-                                <th>Keterangan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data.data?.map((item) => (
-                                <tr
-                                    key={item.id}
-                                    className={`hover:bg-base-300`}
-                                    onClick={() => handleItemClick(item)}
-                                >
-                                    <td>{item.code}</td>
-                                    <td>{item.name}</td>
-                                    <td>{item.category?.name}</td>
-                                    <td>{item.phone}</td>
-                                    <td>{item.gender}</td>
-                                    <td>{item.description}</td>
+                    <div className="w-full overflow-x-auto">
+                        <table className="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Member ID</th>
+                                    <th>Nama</th>
+                                    <th>Kategori</th>
+                                    <th>No.Telp</th>
+                                    <th>Gender</th>
+                                    <th>Keterangan</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {data.data?.map((item) => (
+                                    <tr
+                                        key={item.id}
+                                        className={`hover:bg-base-300`}
+                                        onClick={() => handleItemClick(item)}
+                                    >
+                                        <td>{item.code}</td>
+                                        <td>{item.name}</td>
+                                        <td>{item.category?.name}</td>
+                                        <td>{item.phone}</td>
+                                        <td>{item.gender}</td>
+                                        <td>{item.description}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
 
                     <div className="w-full flex justify-center mt-2">
                         <PaginationApi

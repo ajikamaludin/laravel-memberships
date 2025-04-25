@@ -31,10 +31,12 @@ class MemberCategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
+            'join_fee' => 'nullable|numeric',
         ]);
 
         MemberCategory::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'join_fee' => $request->join_fee,
         ]);
 
         session()->flash('message', ['type' => 'success', 'message' => 'Item has been created']);
@@ -44,10 +46,12 @@ class MemberCategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
+            'join_fee' => 'nullable|numeric',
         ]);
 
         $memberCategory->fill([
             'name' => $request->name,
+            'join_fee' => $request->join_fee,
         ]);
 
         $memberCategory->save();

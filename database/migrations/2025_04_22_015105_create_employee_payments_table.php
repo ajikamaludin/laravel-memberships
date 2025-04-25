@@ -22,6 +22,7 @@ return new class extends Migration
 
             // columns
             $table->timestamp('payment_date')->nullable();
+            $table->timestamp('payment_date_end')->nullable();
             $table->decimal('basic_salary_per_session', 24, 2)->nullable();
             $table->decimal('amount', 24, 2)->nullable();
             $table->text('description')->nullable();
