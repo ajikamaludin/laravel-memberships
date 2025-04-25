@@ -20,8 +20,9 @@ import { dateToString, formatIDR } from '@/utils'
 
 export default function Form(props) {
     const {
-        props: { errors },
+        props: { errors, default_join_fee },
     } = usePage()
+
     const { transaction } = props
 
     const [processing, setProcessing] = useState(false)
@@ -45,13 +46,8 @@ export default function Form(props) {
         Number(discount ?? 0)
 
     const handleSetMember = (member) => {
-        if (member === null) {
-            set_member(null)
-            set_join_fee(0)
-            return
-        }
         set_member(member)
-        set_join_fee(member.category.join_fee)
+        set_join_fee(default_join_fee)
     }
 
     const handleSubmit = () => {
@@ -227,7 +223,7 @@ export default function Form(props) {
             />
             <SelectMember
                 modalState={selectMember}
-                onItemClick={handleSetMember}
+                onItemClick={set_member}
             />
         </AuthenticatedLayout>
     )

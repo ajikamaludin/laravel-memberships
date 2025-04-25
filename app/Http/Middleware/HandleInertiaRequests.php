@@ -45,6 +45,7 @@ class HandleInertiaRequests extends Middleware
                 'data' => fn() => Session::get('data'),
             ],
             'app' => Setting::getByKeys(['app_name', 'app_logo']),
+            'default_join_fee' => Setting::getByKey('join_fee'),
             'navigation' => MenuConstant::handle($request->user())
         ]);
     }

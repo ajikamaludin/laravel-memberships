@@ -9,6 +9,7 @@ import {
     Button,
     FormFile,
     TextareaInput,
+    FormInputNumeric,
 } from '@/components/index'
 
 const extractValue = (set, key) => {
@@ -30,6 +31,7 @@ export default function Setting(props) {
         app_name: extractValue(setting, 'app_name'),
         name: extractValue(setting, 'name'),
         city: extractValue(setting, 'city'),
+        join_fee: extractValue(setting, 'join_fee'),
         app_logo: '',
     })
 
@@ -88,6 +90,13 @@ export default function Setting(props) {
                         onChange={handleOnChange}
                         label="Kota"
                         error={errors.city}
+                    />
+                    <FormInputNumeric
+                        name="join_fee"
+                        value={data.join_fee}
+                        onChange={handleOnChange}
+                        label="Join Fee"
+                        error={errors.join_fee}
                     />
 
                     <div className="mt-4">
